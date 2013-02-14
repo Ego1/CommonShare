@@ -20,7 +20,7 @@ function initItemManagement()
 	 
 	 // Add items in table
 	setupTaxonomyMap();
-	 setupItemsInTable();
+	setupItemsInTable();
 	
 	// Setup autocomplete for taxonomies
 	autocomplete = new AutoComplete();

@@ -10,6 +10,7 @@
 		<title>${title}</title>
 		<script src="${pageContext.request.contextPath}js/jquery-1.8.1.js" type="text/javascript"></script>
 		<script src="${pageContext.request.contextPath}js/jquery-ui-1.9.2.js" type="text/javascript"></script>
+		<script src="${pageContext.request.contextPath}js/lib/messages.js" type="text/javascript"></script>
 		<!-- 
 		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js" type="text/javascript"></script>
 		 -->

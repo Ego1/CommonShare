@@ -1,13 +1,13 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<div class="errorDiv">
+<div class="errorDiv" id="messagediv">
 	<s:if test="error!=null">
 		<div class="errorBox">
 			<div class="errorCode">
 				Error Code: <s:property value="error.code"/><br/>
 			</div>
 			<div class="errorMessage">
-				<ul>
+				<ul id="errormessageul">
 					<s:iterator value="error.messages" var="msg">
 						<li><s:property/></li>
 					</s:iterator>
@@ -18,7 +18,7 @@
 	<s:if test="message!=null">
 		<div class="msgBox">
 			<div class="msg">
-				<ul>
+				<ul id="messageul">
 					<s:iterator value="message.messages">
 						<li><s:property/></li>
 					</s:iterator>

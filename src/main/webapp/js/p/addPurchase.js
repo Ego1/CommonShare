@@ -1,5 +1,9 @@
 $(document).ready(initAddPurchase);
 
+/* **************** Global Variables *********************** */
+var autocomplete;
+/* ********************************************************* */
+
 function initAddPurchase() {
 	// Add date picker control.
 	$("input#tbpurchasedate").datepicker({
@@ -49,6 +53,34 @@ function initAddPurchase() {
 	
 	// Add event listener for submit button.
 	$("button#submit").click(validateAndSubmit);
+	
+	// Setup autocomplete for items
+	$('input#tbitem').focus(openTaxonomyAutocomplete);
+	autocomplete = new AutoComplete();
+	autocomplete.setCallbackMethod(setItem);
+	var selectionList = new Array();
+	for(var ctr = 0; ctr < items.length; ctr++)
+		{
+		selectionList.push({text:items[ctr].name, id:items[ctr].id});
+		}
+	autocomplete.setSelectionList(selectionList);
+}
+
+/**
+ * This is invoked when the focus comes to items text box. It will open the autocomplete dialog.
+ */
+function openTaxonomyAutocomplete()
+{
+	autocomplete.open();
+}
+
+/**
+ * This method is invoked by the autocomplete module.
+ */
+function setItem(selectedItem)
+{
+	$('input#tbitem').val(selectedItem.text);
+	$('input#tbitemid').val(selectedItem.id);
 }
 
 /**
@@ -59,7 +91,23 @@ function initAddPurchase() {
  */
 function validateAndSubmit(event)
 {
+	// All errors will be published into this array.
 	var errors = new Array();
+	
+	// Check if item name, and purchase date are filled.
+	if($("input#tbitem").val() == "")
+		{
+		errors.push("We need item name to save data. Without it, we cannot proceed.");
+		}
+	if($("input#tbitemid").val() == "")
+		{
+		errors.push("We are sorry. An internal error has occured while saving the item. Please refresh the page and start again.");
+		}
+	if($("input#tbpurchasedate").val() == "")
+		{
+		errors.push("We need purchase date to save data. Without it, we cannot proceed.");
+		}
+	
 	// Test if all the checkboxes are checked.
 	var checkBoxes = $("[name^=excludeFromShare]");
 	var allChecked = true;
@@ -76,10 +124,17 @@ function validateAndSubmit(event)
 		errors.push("You cannot exclude all the members from share. Some one has to be available.");
 	}
 	
+	
+	// If there is any error, the form will not be submitted.
 	if(errors.length != 0)
 	{
+		var messages = new Messages();
+		messages.clearErrorMessage();
+		messages.addErrorMessages(messages);
 		event.preventDefault();
 	}
+	
+	
 }
 
 
@@ -135,67 +190,4 @@ function calculateSpread(event)
 	
 	// Set the total in span.
 	$("div#totalAmount").html(total);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function submitForm() {
-	// To manipulate share
-	var notSharedHidden = document.getElementById("notSharedHidden");
-	notSharedHidden.value = "";
-	var notSharedCheckBoxes = document.getElementsByName("notShared");
-	for ( var i = 0; i < notSharedCheckBoxes.length; i++) {
-		var notSharedCB = notSharedCheckBoxes[i];
-		if (notSharedCB.checked) {
-			notSharedHidden.value += notSharedCB.value + ";";
-		}
-	}
-	notSharedHidden.value = notSharedHidden.value.substr(0,
-			notSharedHidden.value.length - 1);
-
-	// To manipulate payments
-	var paymentHidden = document.getElementById("paymentHidden");
-	paymentHidden.value = "";
-	var paymentTextBoxes = document.getElementsByName("payments");
-	for ( var paymentCounter = 0; paymentCounter < paymentTextBoxes.length; paymentCounter++) {
-		var paymentTextBox = paymentTextBoxes[paymentCounter];
-		if (paymentTextBox.value != "") {
-			paymentHidden.value += paymentTextBox.id + ":"
-					+ paymentTextBox.value + ";";
-		}
-	}
-	paymentHidden.value = paymentHidden.value.substr(0,
-			paymentHidden.value.length - 1);
-	document.getElementById("form").submit();
-}
-
-function calculateAmount() {
-	var hiddenAmountField = document.getElementById("amount");
-	var amountSpan = document.getElementById("amountSpan");
-	var totalAmount = 0;
-
-	var amountBoxes = document.getElementsByName("payments");
-	for ( var ctr = 0; ctr < amountBoxes.length; ctr++) {
-		var amount = amountBoxes[ctr].value;
-		totalAmount += Math.pow(amount, 1);
-	}
-	amountSpan.innerHTML = totalAmount;
-	hiddenAmountField.value = totalAmount;
 }

@@ -7,16 +7,13 @@
 	<div class="appBodyDiv">
 		<div class="moduleHeaderDiv" id="moduleHeader">Add Purchase</div>
 		<div class="moduleBodyDiv">
-			<message:messageDisplay/>
 			<form action="addPurchase.action" id='form' method="POST">
 				<div class="formdiv">
-					<div class="formitem">
-						<label for="name">Name</label>
-						<input type="text" id="name" name="itemVO.name"/>
-					</div>		
+					<message:messageDisplay/>
 					<div class="formitem">
 						<label for="tbitem">Item</label>
-						<input type="text" id="tbitem" name="purchaseUIVO.item"/>
+						<input type="text" id="tbitem" name="purchaseUIVO.item.name"/>
+						<input type="hidden" id="tbitemid" name="purchaseUIVO.item.id"/>
 					</div>
 					<div class="formitem">
 						<label for="tbpurchasedate">Purchase Date</label>
@@ -56,7 +53,19 @@
 				</s:iterator>
 				 
 			];
+		
+		var items = 
+			[
+				<s:iterator value="items">
+					{
+					"id": <s:property value="id"/>,
+					"name": "<s:property value="name"/>"
+					},
+				</s:iterator>
+			];
 	</script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/datePicker.js"></script>
+	<link href="${pageContext.request.contextPath}css/lib/autocomplete.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}js/lib/autocomplete.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/p/addPurchase.js"></script>
 </cspage:defaultpage>
