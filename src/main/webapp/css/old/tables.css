@@ -1,0 +1,39 @@
+/*
+For further more CSS tips on tables, refer
+http://coding.smashingmagazine.com/2008/08/13/top-10-css-table-designs/
+*/
+
+.purchaseDisplayTable
+{
+    border: 1px solid #6699CC;
+    border-collapse: collapse;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+    font-size: 12px;
+    margin: 20px;
+    text-align: left;
+}
+.purchaseDisplayTable th
+{
+	color: #003399;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 15px 10px 10px;
+}
+
+.purchaseDisplayTable tbody
+{
+	background: none repeat scroll 0 0 #E8EDFF;
+}
+
+.purchaseDisplayTable td
+{
+	border-top: 1px dashed #FFFFFF;
+    color: #666699;
+    padding: 10px;
+}
+
+.purchaseDisplayTable tbody tr:hover td
+{
+	background: none repeat scroll 0 0 #D0DAFD;
+    color: #333399;
+}

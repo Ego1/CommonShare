@@ -1,0 +1,68 @@
+.ui-tabs {
+	position: relative;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid red;
+}
+
+.ui-tabs .tabsNavBar
+{
+	clear: both;
+	position: relative;
+}
+
+/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav {
+	margin: 5px;
+	padding: 5px;
+	background-color: yellow;
+	clear: both;
+	position: relative;
+}
+
+.ui-tabs .ui-tabs-nav li {
+	list-style: none;
+	float: left;
+	position: relative;
+	margin: 5px;
+	padding: 5px;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	border: 1px solid;
+	border-color: brown;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	text-decoration: none;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+	background-color: brown;
+	border: 1px solid;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a,.ui-tabs .ui-tabs-nav li.ui-state-disabled a,.ui-tabs .ui-tabs-nav li.ui-tabs-loading a
+	{
+	cursor: text;
+}
+
+.ui-tabs .ui-tabs-nav li a,.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active a
+	{
+	cursor: pointer;
+}
+
+/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel {
+	display: block;
+	padding: 5px;
+	background-color: white;
+}
+
+.tabpage
+{
+	border-radius: 5px;
+	padding: 5px;
+	border: 1px solid red;
+	background-color: black;
+}

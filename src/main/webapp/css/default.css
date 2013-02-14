@@ -1,0 +1,52 @@
+body 
+{
+	background-image: url('../images/brick1_bg.jpg');
+	color: #F8F6F4;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	margin: 0 auto;
+	max-width: 1000px;
+	text-align: center;
+}
+
+clearboth
+{
+	clear: both;
+}
+
+.listbox
+{
+	-webkit-appearance: none;
+    -moz-appearance: window;
+    background: transparent;
+    width: 100%;
+    width: 112%;   /* IE hack */
+    padding: 1px 20px 0 3px;
+    border: 0;
+}
+
+select 
+{
+	-webkit-appearance: none;
+    -moz-appearance: window;
+    background-color: gray;
+    width: 150px;
+    border: 0;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+}
+
+option
+{
+	background-color: white;
+	height: 20px;
+	font-size: 15px;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.hidden
+{
+	display: none;
+}

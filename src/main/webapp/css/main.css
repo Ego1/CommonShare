@@ -1,0 +1,59 @@
+.appBodyDiv
+{
+	width: 1000px;
+}
+
+.headerDiv
+{
+	widows: 100%;
+	min-height: 40px;
+	clear: both;
+	font-size: 20px;
+	font-style: oblique;
+	background-color: white;
+	opacity: 0.9;
+	color: black;
+	margin: 5px;
+	border-radius: 10px;
+}
+
+
+.bodyDiv
+{
+	color: black;
+	margin: 5px;	
+	clear:both;
+}
+
+.footerDiv
+{
+	widows: 100%;
+	min-height: 25px;
+	clear: both;
+	background-color: white;
+	opacity: 0.9;
+	color: black;
+	border-radius: 10px;
+	margin: 5px;
+}
+
+.moduleHeaderDiv
+{
+	font-size: 20px;
+	font-style: oblique;
+	background-color: red;
+	opacity: 0.9;
+	padding: 10px;
+	border-radius: 10px;
+	clear: both;
+	float: center;
+}
+
+.moduleBodyDiv
+{
+	opacity: 0.85;
+	background-color: white;
+	margin: 5px;
+	padding: 10px;
+	border-radius: 10px;
+}

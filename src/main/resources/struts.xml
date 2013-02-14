@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<!-- Enable OGNL to access static methods. -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/> 
+
+	<package name="default" namespace="/" extends="struts-default">
+		<default-action-ref name="loginPage" />
+
+		<global-results>
+			<result name="error">/WEB-INF/pages/common/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+ 
+		<action name="login" class="com.ego.apps.commonshare.actions.LoginAction"
+			method="doLogin">
+			<result name="SUCCESS">/WEB-INF/pages/p/home.jsp</result>
+			<result name="ERROR">/WEB-INF/pages/common/login.jsp</result>
+		</action>
+
+		<action name="loginPage">
+			<result>/WEB-INF/pages/common/login.jsp</result>
+		</action>
+		
+		<action name="showGroupRegistrationPage">
+			<result>/WEB-INF/pages/common/registerGroup.jsp</result>
+		</action>
+		
+		<action name="registerGroup" class="com.ego.apps.commonshare.actions.UserRegistrationAction" method="registerGroup">
+			<result name="ERROR">/WEB-INF/pages/common/registerGroup.jsp</result>
+			<result name="SUCCESS">/WEB-INF/pages/common/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="secured" namespace="/p" extends="struts-default">
+		<interceptors>
+			<interceptor name="login"
+				class="com.ego.apps.commonshare.interceptors.LoginInterceptor" />
+
+			<interceptor-stack name="protectedInterceptor">
+				<interceptor-ref name="login" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="protectedInterceptor">
+		</default-interceptor-ref>
+		
+		<default-action-ref name="home" />
+		
+		<global-results>
+			<result name="home" type="chain">home</result>
+			<result name="login">/WEB-INF/pages/common/login.jsp</result>
+		</global-results>
+		
+		<action name="home">
+			<result>/WEB-INF/pages/p/home.jsp</result>
+		</action>
+		
+		<action name="userManagement" class="com.ego.apps.commonshare.actions.UserManagementAction" method="getAllUsers">
+			<result name="SUCCESS">/WEB-INF/pages/p/userManagement.jsp</result>
+			<result name="ERROR">/WEB-INF/pages/p/userManagement.jsp</result>
+			<result name="LOGIN" type="chain">login</result>
+		</action>
+		
+		<action name="addUser" class="com.ego.apps.commonshare.actions.UserRegistrationAction" method="registerUser">
+			<result name="ERROR" type="chain">showAddUser</result>
+			<result name="SUCCESS" type="chain">userManagement</result>
+		</action>
+		
+		<action name="commonShareManagement">
+			<result>/WEB-INF/pages/p/commonShareManagement.jsp</result>
+		</action>
+		
+		<action name="showAddPurchases">
+			<result>/WEB-INF/pages/p/addPurchases.jsp</result>
+		</action>
+		
+		<action name="addPurchase" class="com.ego.apps.commonshare.actions.UserRegistrationAction" method="registerUser">
+			<result name="ERROR" type="chain">showAddUser</result>
+			<result name="SUCCESS" type="chain">home</result>
+		</action>
+		
+		<!-- Taxonomy management actions start here -->
+		<action name="showTaxonomyManagement" class="com.ego.apps.commonshare.actions.TaxonomyManagementAction" method="getAllTaxonomiesForGroup">
+			<result name="SUCCESS">/WEB-INF/pages/p/taxonomyManagement.jsp</result>
+		</action>		
+		
+		<action name="addTaxonomy" class="com.ego.apps.commonshare.actions.TaxonomyManagementAction" method="addTaxonomy">
+			<result name="SUCCESS">/WEB-INF/pages/p/ajaxResult.jsp</result>
+		</action>
+		<!-- Taxonomy management actions end here -->
+		
+		<!-- Item management actions start here -->
+		<action name="showItemManagement" class="com.ego.apps.commonshare.actions.ItemManagementAction" method="readyPage">
+			<result name="SUCCESS">/WEB-INF/pages/p/itemManagement.jsp</result>
+		</action>
+		
+		<action name="addItem" class="com.ego.apps.commonshare.actions.ItemManagementAction" method="addItem">
+			<result name="SUCCESS">/WEB-INF/pages/p/ajaxResult.jsp</result>
+		</action>
+		<!-- Item management actions end here -->
+		
+		<!-- Item purchases begin-->
+		<action name="showAddPurchase" class="com.ego.apps.commonshare.actions.PurchaseManagementAction" method="showAddPurchases">
+			<result name="SUCCESS">/WEB-INF/pages/p/addPurchase.jsp</result>
+		</action>
+		
+		<action name="addPurchase" class="com.ego.apps.commonshare.actions.PurchaseManagementAction" method="addPurchase">
+			<result name="SUCCESS">/WEB-INF/pages/p/ajaxResult.jsp</result>
+		</action>
+		<!-- Item purchases end-->
+	</package>	
+</struts>

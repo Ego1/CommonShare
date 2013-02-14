@@ -1,0 +1,116 @@
+.autocompleteMask
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 1000;
+	background-color: #000000;
+	// opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+.autocompleteDiv 
+{
+	background: #D6D2FF;
+	// border-radius: 15px 15px 15px 15px;
+	left: 20%;
+	opacity: 1;
+	padding: 15px;
+	position: relative;
+	top: 25%;
+	width: 600px;
+	height: 200px;
+	z-index: 1001;
+	color: #A59BFF;
+	border: 1px solid;
+}
+
+.autocompleteSearchTermDiv
+{
+	color: #A59BFF;
+	font-size: 20px;
+	height: 200px;
+	width: 250px;
+	float: left;
+}
+
+.autocompleteSearchTermDiv input
+{
+	border: 1px solid #A59BFF;
+	// border-radius: 10px;
+	padding: 0 10px 0 10px;
+	color: #A59BFF;
+	font-size: 20px;
+	height: 35px;
+	// width: 240px;
+}
+
+.autocompleteSearchTermDiv button
+{
+	border: 1px solid #A59BFF;
+	padding: 0 10px 0 10px;
+	color: #8888FF;
+	background-color: #BBBBFF;
+	font-size: 20px;
+	height: 35px;
+	width: 240px;
+	clear: both;
+}
+
+.autocompleteSearchTermDiv button[disabled]
+{
+	border: 1px solid #8888FF;
+	padding: 0 10px 0 10px;
+	color: #8888FF;	
+	background-color: #EFEFFF;
+	font-size: 20px;
+	height: 35px;
+	width: 240px;
+	clear: both;
+}
+
+.autocompleteSearchResultsDiv
+{
+	width: 350px;
+	float: right;
+}
+
+.autocompleteSearchResultsDiv select
+{
+	width: 100%;
+	// border-radius: 20px;
+	height: 100%;
+	padding: 10px;
+	color: #8888FF;
+	border: 1px solid;
+}
+
+.autocompleteSearchResultsDiv select option
+{
+	border: 2px solid;
+	// border-radius: 5px 5px 5px 5px;
+	color: #8888FF;
+	font-size: 18px;
+	height: 20px;
+	margin: 3px;
+	overflow: auto;
+}
+
+.autocompleteTextboxDiv
+{
+	height: 60px;
+	width: 100px;
+	border: 1px solid;
+	color: #8888FF;
+	background-color: #EFEFFF;
+}
+
+.autocompleteTextboxSelectionItem
+{
+	height: 20px;
+	width: 100px;
+	border: 1px solid;
+	color: #8888FF;
+}

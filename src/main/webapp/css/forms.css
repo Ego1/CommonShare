@@ -1,0 +1,83 @@
+.form
+{
+	border-radius: 10px;
+	border: 1px solid gray;
+	margin: 5px;
+	opacity: 0.75;
+	background-color: gray;
+	padding: 10px;
+}
+
+.form .submitButton
+{
+	border-radius: 7px;
+	height: 15px;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.elementul
+{
+	list-style: none;
+	margin: 0px;
+	padding: 5px;
+}
+
+.elementul li
+{
+	width: 100%;
+	height: 25px;
+	clear: both;
+	vertical-align: bottom;
+}
+
+.elementul label
+{
+	font-weight: bold;
+	text-align: right;
+	margin: 0 5px 0 0;
+	passing: 0 5px 0 0;
+	height: 25px;
+	float: left;
+	width: 25%;
+}
+
+.elementul .innerinput
+{
+	border-radius: 7px;
+	font-size: 12px;
+	float: right;
+	width: 70%;
+}
+
+.innerinputcb
+{
+	clear:both;
+	width: 100%;
+}
+
+.innerinput label
+{
+	float: left;
+	width: 45%;
+}
+
+.innerinput .textinput
+{
+	float: right;
+	width: 50%;
+}
+
+.elementul .textinput
+{
+	border-radius: 7px;
+	height: 15px;
+	font-size: 12px;
+	border: 1px solid black;
+	float: right;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 70%;
+}

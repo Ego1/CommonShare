@@ -1,0 +1,28 @@
+.taxonomyManagement
+{
+	clear:both;
+	background-color: red;
+}
+
+.taxonomyManagement .taxonomyPanel
+{
+	float: left;
+	border: 1px solid;
+	background-color: gray;
+}
+
+.taxonomyManagement .taxonomyPanel .taxonomyaddpanel
+{
+	background-color: green;
+	clear: both;
+}
+
+.taxonomyManagement .taxonomyPanel .taxonomySelect
+{
+	clear: both;
+}
+
+.addTaxonomyForm
+{
+	clear:both;
+}

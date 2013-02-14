@@ -1,0 +1,75 @@
+.spacer130
+{
+	color: #555555;
+	font-size: 11px;
+	margin-bottom: 10px;
+	margin-left: 130px;
+}
+.greenButton 
+{
+	background: url(img/green.gif);
+	padding: 0px 6px;
+	border: 1px solid #3b6e22;
+	height: 24px;
+	line-height: 24px;
+	color: #FFFFFF;
+	font-size: 12px;
+	margin-right: 10px;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.form1 
+{
+	background: none repeat scroll 0 0 #DFE4EE;
+	border: 1px solid #C6CFE1;
+	color: #333333;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 350px;
+}
+
+.form1 .input-text 
+{
+	border: 1px solid #3b6e22;
+	color: #666666;
+}
+
+.form1 label 
+{
+	display: block;
+	margin-bottom: 10px;
+	color: #555555;
+}
+
+.form1 label span 
+{
+	display: block;
+	float: left;
+	padding-right: 6px;
+	width: 140px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.singleRowSet
+{
+	float: left;
+	padding: 0 0 0 0;
+	width: 175px;
+	border: 1px solid #3b6e22;
+}
+.singleRow
+{
+	float: left;
+	font-weight: normal;
+	padding: 0 0 0 0;
+	width: 170px;
+	text-align: left;
+}
+
+.singleRowTB
+{
+	width:40px; 
+	float:right;
+}

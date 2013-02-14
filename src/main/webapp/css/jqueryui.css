@@ -1,0 +1,82 @@
+.ui-widget
+{
+	background-color: grey;
+}
+
+.ui-widget-content
+{
+	background-color: purple;
+}
+
+.ui-widget-header
+{
+	
+}
+.ui-helper-clearfix
+{
+	
+}
+.ui-corner-all
+{
+	border-radius: 5px;
+}
+
+.ui-icon
+{
+	
+}
+
+.ui-icon-circle-triangle-w
+{
+	background-color: orange;
+	float: left;
+}
+
+.ui-icon-circle-triangle-e
+{
+	background-color: aqua;
+	float: right;
+}
+
+/* Date picket CSS. */
+.ui-datepicker
+{
+	background-color: yellow;	
+}
+
+.ui-datepicker-header
+{
+	background-color: red;
+}
+
+.ui-datepicker-calendar
+{
+	background-color: green;
+}
+
+.ui-datepicker-calendar thead
+{
+	background-color: olive;
+}
+
+.ui-datepicker-week-end
+{
+	background-color: violet;
+}
+
+.ui-datepicker-title
+{
+	clear: both;
+}
+
+.ui-datepicker-month
+{
+	width: 60px;
+	height: 30px;
+}
+
+.ui-datepicker-year
+{
+	width: 60px;
+	height: 30px;
+}

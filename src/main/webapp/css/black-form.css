@@ -1,0 +1,117 @@
+.formdiv
+{
+	clear:both;
+	width: 500px;
+	border-radius: 10px;
+	padding: 5px;
+	border: 2px solid #262626;
+	height: auto;
+	text-align: left;
+	background-color: #000000;
+}
+
+.formdiv .formitem
+{
+	float: left;
+	margin: 5px 5px;
+	clear: both;
+	padding: 5px;
+}
+
+.formdiv .formitem label
+{
+	float: left;
+	color: #F3EFD6;
+    font-size: 20px;
+	text-align: right;
+	width: 100px;
+	margin: 0 10px 0 0;
+}
+
+.formdiv .formitem div
+{
+	background: none repeat scroll 0 0 #151515;
+    border: 1px solid #262626;
+	float: left;
+	width: 360px;
+	padding: 0 0 0 5px;
+	color: #F3EFD6;
+    font-size: 18px;
+}
+
+.formdiv .formitem div .head
+{
+	border-bottom: 1px solid gray;
+}
+
+.formdiv .formitem div p
+{
+	clear: both;
+	float: left;
+	margin: 0px;
+	padding: 5px;
+}
+
+.formdiv .formitem div p  label
+{
+	font-size: 16px;
+	width: 100px;
+}
+
+.formdiv .formitem div p .formcb
+{
+	height: 20px;
+	width: 5px;
+	float: left;
+}
+
+.formdiv .formitem div p input
+{
+	width: 225px;
+	float: left;
+}
+
+.formdiv .formitem .formitemhead
+{
+	float: left;
+	color: #F3EFD6;
+    font-size: 18px;
+}
+
+.formdiv .formitem input
+{
+	float: right;
+	background: none repeat scroll 0 0 #151515;
+    border: 1px solid #262626;
+    color: #F7B504;
+    font-family: 'Bitter',serif;
+    font-size: 16px;
+    height: 35px;
+	width: 350px;
+	padding: 0 5px 0 5px;
+    line-height: 30px;
+}
+
+.formdiv .submitbutton
+{
+	width: 180px;
+	height: 53px;
+	border: 1px solid #262626;
+	margin: 0 15px 0 0;
+	background-color: #F3EFD6;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.formdiv .submitbutton:hover
+{
+	
+	background-color: #000000;
+	color: #F3EFD6;
+	font-size: 24px;
+	font-weight: bold;
+	width: 180px;
+	height: 53px;
+	border: 1px solid #262626;
+	margin: 0 5px; 0 0;
+}

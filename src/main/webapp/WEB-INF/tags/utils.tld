@@ -1,0 +1,23 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jspversion>1.1</jspversion>
+	<short-name>CSUtils</short-name>
+	<uri>/com-ego-cs-ui-utils</uri>
+	<function>
+		<name>getContextedURL</name>
+		<function-class>com.ego.cs.ui.UIProperties</function-class>
+		<function-signature>String getContextedURL(String urlFragment)</function-signature>
+	</function>
+	<tag>
+		<description>This tag takes string attribute and prepends the context path to it forming a complete URL. The context path is read from config.properties.</description>
+		<name>contextedurl</name>
+		<tag-class>com.ego.cs.ui.tags.ContextURL</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>urlFragment</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+	</tag>
+</taglib>

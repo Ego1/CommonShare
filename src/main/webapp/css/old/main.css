@@ -1,0 +1,62 @@
+@CHARSET "ISO-8859-1";
+
+.bodyDiv
+{
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+.headerDiv
+{
+	clear:both;
+	background-color: green;
+	display: block;
+	float: left;
+	width: 100%;
+	height: 80px;
+	position: absolute;
+	top:0px;
+}
+.mainBodyDiv {
+	color: #0C0;
+	width: 100%;
+	border: dotted;
+	position: absolute;
+	top: 80px;
+	display: block;
+	float: left;
+}
+.footerDiv
+{
+	color: #0C0;
+	width: 100%;
+	position: absolute;
+	background-color: blue;
+	display: block;
+	float: left;
+}
+.errorBox
+{
+	color: red;
+	border: dotted;
+}
+.errorCode
+{
+	font-weight: bolder;	
+}
+.errorMessage
+{
+	font-weight: bold;
+	color: orange;
+}
+
+.msgBox
+{
+	color: green;
+	border: solid;
+}
+.errorMessage
+{
+	font-weight: bold;
+	color: blue;
+}
