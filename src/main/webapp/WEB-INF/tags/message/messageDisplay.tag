@@ -1,6 +1,7 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<div class="errorDiv" id="messagediv">
+
+<div class="messagediv" id="messagediv">
 	<s:if test="error!=null">
 		<div class="errorBox">
 			<div class="errorCode">

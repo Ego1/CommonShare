@@ -3,9 +3,9 @@ function Messages()
 	this.addErrorMessage = function(message)
 	{
 		var messageul = $("ul#errormessageul");
-		if(messageul == null)
+		if(messageul.length == 0)
 			{
-			$("div#messagediv").append("<ul id=\"errormessageul\"></div>");
+			$("div#messagediv").append("<div class=\"errorMessage\"><ul id=\"errormessageul\"></ul></div>");
 			messageul = $("ul#errormessageul");
 			}
 		messageul.append("<li>" + message + "</li>");
@@ -15,7 +15,8 @@ function Messages()
 	{
 		for(var ctr = 0; ctr < messages.length; ctr++)
 			{
-			addErrorMessage(messages[ctr]);
+			this.addErrorMessage(messages[ctr]);
+			// addErrorMessage(messages[ctr]);
 			}
 	};
 	

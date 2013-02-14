@@ -1,0 +1,50 @@
+.messagediv
+{
+	
+}
+
+.errorBox
+{
+	border: 1px solid red;
+	color: red;
+}
+
+.errorCode
+{
+	font-weight: bold;
+}
+
+.errorMessage
+{
+	
+}
+
+.errorMessage ul
+{
+	color: red;
+}
+
+.errorMessage ul li
+{
+	list-style-type: circle;	
+}
+
+.msgBox
+{
+	border: 1px solid green;'
+}
+
+.msg
+{
+	color:green;
+}
+
+.msg ul
+{
+	
+}
+
+.msg li
+{
+	
+}

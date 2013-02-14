@@ -8,8 +8,9 @@ function initAddPurchase() {
 	// Add date picker control.
 	$("input#tbpurchasedate").datepicker({
 		changeMonth : true,
-		changeYear : true
-	});
+		changeYear : true,
+		dateFormat : "dd/mm/yy"
+	});	 
 
 	// Add other users to exclusion and payment list.
 	var exclusionCheckboxHTML = "";
@@ -30,7 +31,7 @@ function initAddPurchase() {
 					+ id
 					+ "\">"
 					+ name
-					+ "</label><input type=\"text\" class=\"textinput\" id=\"paymentSpread"
+					+ "</label><input type=\"text\" class=\"smallinput\" id=\"paymentSpread"
 					+ id + "\" name=\"paymentSpread" + id + "\"/> </p>";
 		}
 	}
@@ -99,8 +100,9 @@ function validateAndSubmit(event)
 		{
 		errors.push("We need item name to save data. Without it, we cannot proceed.");
 		}
-	if($("input#tbitemid").val() == "")
+	else if($("input#tbitemid").val() == "")
 		{
+		// We need to check for id only if the item was selected.
 		errors.push("We are sorry. An internal error has occured while saving the item. Please refresh the page and start again.");
 		}
 	if($("input#tbpurchasedate").val() == "")
@@ -130,11 +132,33 @@ function validateAndSubmit(event)
 	{
 		var messages = new Messages();
 		messages.clearErrorMessage();
-		messages.addErrorMessages(messages);
+		messages.addErrorMessages(errors);
 		event.preventDefault();
 	}
 	
+	// Validation is complete
+	// Collate all the exclude from share items.
+	var checkBoxes = $("[name^=excludeFromShare]");
+	var excludeFromShare = "";
+	for(var ctr = 0; ctr < checkBoxes.length; ctr++)
+	{
+		var id = checkBoxes[ctr].id;
+		if($("input#"+id).prop('checked') == true)
+		{
+			excludeFromShare = excludeFromShare + id.replace("excludeFromShare","") + " ";
+		}
+	}
+	$("input#excludeFromShare").val(excludeFromShare);
 	
+	// Collate payment spread
+	var spreads = $("[name^=paymentSpread]");
+	var paymentSpread = "";
+	for(var ctr = 0; ctr < spreads.length; ctr++)
+	{
+		var id = spreads[ctr].id;
+		paymentSpread = paymentSpread + "[" + id.replace("paymentSpread","") + "," + $("input#"+id).val() + "],";
+	}
+	$("input#paymentSpread").val(paymentSpread);
 }
 
 

@@ -46,7 +46,6 @@
 
 .formdiv .formitem div p
 {
-	clear: both;
 	float: left;
 	margin: 0px;
 	padding: 5px;
@@ -55,13 +54,19 @@
 .formdiv .formitem div p  label
 {
 	font-size: 16px;
-	width: 100px;
+	width: 80px;
 }
 
 .formdiv .formitem div p .formcb
 {
 	height: 20px;
 	width: 5px;
+	float: left;
+}
+
+.formdiv .formitem div p .smallinput
+{
+	width: 45px;
 	float: left;
 }
 

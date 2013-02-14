@@ -10,9 +10,17 @@ import com.ego.apps.commonshare.dao.entities.Group;
 import com.ego.apps.commonshare.dao.entities.Item;
 import com.ego.apps.commonshare.dao.entities.Taxonomy;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
+import com.ego.apps.commonshare.util.StringUtils;
 
 public class ItemDAO extends BaseDAO
 	{
+	/**
+	 * Fetches all the items associated to a group.
+	 * 
+	 * @param group
+	 *            The group name whose items are to be fetched.
+	 * @return A list of items associated to mentioned group.
+	 */
 	public List<Item> getAllItems(String group)
 		{
 		Query query = entityManager.createNamedQuery("GET_ALL_GROUP_ITEMS");
@@ -29,27 +37,27 @@ public class ItemDAO extends BaseDAO
 
 		return items;
 		}
-	
+
 	public Item addItem(ItemVO itemVO, String groupName) throws CSBusinessException
 		{
 		entityManager.getTransaction().begin();
 		GroupDAO groupDAO = new GroupDAO(entityManager);
 		Group group = groupDAO.getGroup(groupName);
-		if(group == null)
+		if (group == null)
 			{
 			// This scenario must not occur.
 			entityManager.getTransaction().rollback();
 			throw new CSBusinessException("itemmanagement.error.invalidgroup");
 			}
-		
+
 		TaxonomyDAO taxonomyDAO = new TaxonomyDAO();
 		Taxonomy taxonomy = taxonomyDAO.getTaxonomyById(itemVO.getTaxonomy());
-		if(taxonomy == null)
+		if (taxonomy == null)
 			{
 			entityManager.getTransaction().rollback();
 			throw new CSBusinessException("itemmanagement.error.taxonomy-doesnt-exist");
 			}
-		
+
 		Item item = new Item();
 		item.setUserGroup(group);
 		item.setTaxonomy(taxonomy);
@@ -57,6 +65,21 @@ public class ItemDAO extends BaseDAO
 		item.setDescription(itemVO.getDescription());
 		entityManager.persist(item);
 		entityManager.getTransaction().commit();
+		return item;
+		}
+
+	/**
+	 * Fetches an item from database based on the itemid provided.
+	 * 
+	 * @param itemid
+	 *            The id of item that needs to be fetched.
+	 * @return Item object corresponding to the id. If the id is wrong, null will be returned.
+	 */
+	public Item getItem(int itemid)
+		{
+		Item item = new Item();
+		item.setId(itemid);
+		item = entityManager.merge(item);
 		return item;
 		}
 	}

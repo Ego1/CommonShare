@@ -23,7 +23,7 @@ public final class GroupDAO extends BaseDAO
 		{
 		super();
 		}
-	
+
 	public GroupDAO(EntityManager entityManager)
 		{
 		super(entityManager);
@@ -118,16 +118,24 @@ public final class GroupDAO extends BaseDAO
 		query.setParameter("groupName", groupName);
 		return (List<User>) query.getResultList();
 		}
-	
+
 	public Group getGroup(String groupName)
 		{
 		Query query = entityManager.createNamedQuery("GET_GROUP");
 		query.setParameter("name", groupName);
 		List<Group> groups = query.getResultList();
-		if(groups == null || groups.size() == 0)
+		if (groups == null || groups.size() == 0)
 			{
 			return null;
 			}
 		return groups.get(0);
+		}
+
+	public Group getGroup(int groupId)
+		{
+		Group group = new Group();
+		group.setId(groupId);
+		group = entityManager.merge(group);
+		return group;
 		}
 	}

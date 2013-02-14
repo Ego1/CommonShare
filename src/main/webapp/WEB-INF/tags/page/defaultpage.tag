@@ -21,6 +21,7 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/black-form.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/sizes.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/jqueryui.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/messages.css">
 	</head>
 	<body>
 		<div class="appBodyDiv">
