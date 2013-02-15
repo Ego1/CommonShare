@@ -66,7 +66,7 @@ function setupTaxonomyMap()
 function addItem(event)
 {
 	event.preventDefault();
-	$.getJSON(addItemURL, $('#addItemForm').serialize(),addItemSuccess).error(addItemFailure).complete(addItemComplete);
+	$.post(addItemURL, $('#addItemForm').serialize(),addItemSuccess).error(addItemFailure).complete(addItemComplete);
 }
 
 function addItemSuccess(data)

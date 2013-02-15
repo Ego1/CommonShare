@@ -165,34 +165,31 @@ function validateAndSubmit(event)
 	
 	// Since we are making an AJAX call, we shall prevent default propagation. And then fire AJAX.
 	event.preventDefault();
-	$.getJSON(addPurchaseURL, $('#addItemForm').serialize(),addPurchaseSuccess).error(addPurchaseFailure).complete(addPurchaseComplete);
+	$.post(addPurchaseURL, $('form#addPurchaseForm').serialize(),addPurchaseSuccess).error(addPurchaseFailure).complete(addPurchaseComplete);
 }
 
 function addPurchaseSuccess(data)
 {
-	if(data.result == "true")
+	if(data.result == "true" || data.result == true)
 		{
 		// Adding purchase was successful.
-		alert("Adding purchase was successful.");
 		messages.addSuccessMessage(data.message);
 		
 		}
 	else
 		{
 		// Adding purchase failed.
-		alert("Adding purchase failed.");
 		messages.addErrorMessage("Adding a purchase fialed: " + data.message);
 		}
 }
 
 function addPurchaseFailure(data)
 {
-	messages.addErrorMessage("Adding a purchase fialed: " + data.message);
+	messages.addErrorMessage("Error :: Adding a purchase fialed: " + data.message);
 }
 
-function addPurchaseComplete()
+function addPurchaseComplete(data)
 {
-	// messages.addSuccessMessage(data.message);
 }
 
 

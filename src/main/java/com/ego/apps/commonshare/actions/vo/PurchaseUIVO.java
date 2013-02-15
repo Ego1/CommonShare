@@ -1,6 +1,5 @@
 package com.ego.apps.commonshare.actions.vo;
 
-import com.ego.apps.commonshare.dao.entities.Group;
 import com.ego.apps.commonshare.dao.entities.Item;
 import com.ego.apps.commonshare.dao.entities.Purchase;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;

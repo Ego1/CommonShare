@@ -60,12 +60,14 @@ public class PurchaseManagementAction extends BaseAction
 			ajaxResult = new AjaxResult();
 			ajaxResult.setResult(true);
 			ajaxResult.setMessage("Purchase added successfully.");
+			ajaxResult.setData("\"\"");
 			}
 		catch (CSBusinessException csBusinessException)
 			{
 			ajaxResult = new AjaxResult();
 			ajaxResult.setResult(false);
 			ajaxResult.setMessage(csBusinessException.getMessage());
+			ajaxResult.setData("\"\"");
 			handleBusinessException(csBusinessException);
 			}
 		return RESULT_SUCCESS;
@@ -101,5 +103,16 @@ public class PurchaseManagementAction extends BaseAction
 		{
 		this.purchaseUIVO = purchaseUIVO;
 		}
+
+	public AjaxResult getAjaxResult()
+		{
+		return ajaxResult;
+		}
+
+	public void setAjaxResult(AjaxResult ajaxResult)
+		{
+		this.ajaxResult = ajaxResult;
+		}
+	
 
 	}

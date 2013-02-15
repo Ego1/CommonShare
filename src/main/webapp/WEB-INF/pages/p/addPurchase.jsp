@@ -10,7 +10,7 @@
 	<div class="appBodyDiv">
 		<div class="moduleHeaderDiv" id="moduleHeader">Add Purchase</div>
 		<div class="moduleBodyDiv">
-			<form action="addPurchase.action" id='form' method="POST">
+			<form action="addPurchase.action" id='addPurchaseForm' method="POST">
 				<div class="formdiv">
 					<message:messageDisplay/>
 					<div class="formitem">

@@ -30,7 +30,7 @@ function Messages()
 		$("ul#messageul").html = "";
 	};
 	
-	this.addSuccessMessage = function()
+	this.addSuccessMessage = function(message)
 	{
 		var messageul = $("ul#messageul");
 		if(messageul.length == 0)
