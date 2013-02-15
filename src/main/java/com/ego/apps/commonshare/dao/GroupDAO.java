@@ -133,9 +133,7 @@ public final class GroupDAO extends BaseDAO
 
 	public Group getGroup(int groupId)
 		{
-		Group group = new Group();
-		group.setId(groupId);
-		group = entityManager.merge(group);
+		Group group = entityManager.find(Group.class, groupId);
 		return group;
 		}
 	}

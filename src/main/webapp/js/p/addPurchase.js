@@ -2,9 +2,13 @@ $(document).ready(initAddPurchase);
 
 /* **************** Global Variables *********************** */
 var autocomplete;
+var messages;
 /* ********************************************************* */
 
 function initAddPurchase() {
+	// Initialize messaging
+	messages = new Messages();
+	
 	// Add date picker control.
 	$("input#tbpurchasedate").datepicker({
 		changeMonth : true,
@@ -130,7 +134,6 @@ function validateAndSubmit(event)
 	// If there is any error, the form will not be submitted.
 	if(errors.length != 0)
 	{
-		var messages = new Messages();
 		messages.clearErrorMessage();
 		messages.addErrorMessages(errors);
 		event.preventDefault();
@@ -159,6 +162,37 @@ function validateAndSubmit(event)
 		paymentSpread = paymentSpread + "[" + id.replace("paymentSpread","") + "," + $("input#"+id).val() + "],";
 	}
 	$("input#paymentSpread").val(paymentSpread);
+	
+	// Since we are making an AJAX call, we shall prevent default propagation. And then fire AJAX.
+	event.preventDefault();
+	$.getJSON(addPurchaseURL, $('#addItemForm').serialize(),addPurchaseSuccess).error(addPurchaseFailure).complete(addPurchaseComplete);
+}
+
+function addPurchaseSuccess(data)
+{
+	if(data.result == "true")
+		{
+		// Adding purchase was successful.
+		alert("Adding purchase was successful.");
+		messages.addSuccessMessage(data.message);
+		
+		}
+	else
+		{
+		// Adding purchase failed.
+		alert("Adding purchase failed.");
+		messages.addErrorMessage("Adding a purchase fialed: " + data.message);
+		}
+}
+
+function addPurchaseFailure(data)
+{
+	messages.addErrorMessage("Adding a purchase fialed: " + data.message);
+}
+
+function addPurchaseComplete()
+{
+	// messages.addSuccessMessage(data.message);
 }
 
 

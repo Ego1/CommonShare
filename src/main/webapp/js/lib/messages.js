@@ -24,4 +24,20 @@ function Messages()
 	{
 		$("ul#errormessageul").html = "";
 	};
+	
+	this.clearMessages = function()
+	{
+		$("ul#messageul").html = "";
+	};
+	
+	this.addSuccessMessage = function()
+	{
+		var messageul = $("ul#messageul");
+		if(messageul.length == 0)
+			{
+			$("div#messagediv").append("<div class=\"msg\"><ul id=\"messageul\"></ul></div>");
+			messageul = $("ul#messageul");
+			}
+		messageul.append("<li>" + message + "</li>");
+	};
 }

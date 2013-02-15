@@ -16,6 +16,7 @@ public class PurchaseDAO extends BaseDAO
 		ItemDAO itemDAO = new ItemDAO();
 		Item item = itemDAO.getItem(purchase.getItem().getId());
 		purchase.setItem(item);
+		System.out.println("------------------------------------------ Obtained item as: " + item);
 		// Step 3: Persist
 		entityManager.getTransaction().begin();
 		entityManager.persist(purchase);

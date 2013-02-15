@@ -17,14 +17,12 @@
 		</div>
 	</s:if>
 	<s:if test="message!=null">
-		<div class="msgBox">
-			<div class="msg">
-				<ul id="messageul">
-					<s:iterator value="message.messages">
-						<li><s:property/></li>
-					</s:iterator>
-				</ul>
-			</div>
+		<div class="msg">
+			<ul id="messageul">
+				<s:iterator value="message.messages">
+					<li><s:property/></li>
+				</s:iterator>
+			</ul>
 		</div>
 	</s:if>
 </div>

@@ -63,6 +63,7 @@ public class PurchaseManagementAction extends BaseAction
 			}
 		catch (CSBusinessException csBusinessException)
 			{
+			ajaxResult = new AjaxResult();
 			ajaxResult.setResult(false);
 			ajaxResult.setMessage(csBusinessException.getMessage());
 			handleBusinessException(csBusinessException);

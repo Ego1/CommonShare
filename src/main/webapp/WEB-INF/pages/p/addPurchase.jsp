@@ -4,6 +4,9 @@
 <%@taglib prefix="cspage" tagdir="/WEB-INF/tags/page"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <cspage:defaultpage title="Home">
+	<script type="text/javascript">
+		var addPurchaseURL = "${pageContext.request.contextPath}p/addPurchase.action";
+	</script>
 	<div class="appBodyDiv">
 		<div class="moduleHeaderDiv" id="moduleHeader">Add Purchase</div>
 		<div class="moduleBodyDiv">

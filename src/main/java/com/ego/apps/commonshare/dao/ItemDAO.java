@@ -75,11 +75,10 @@ public class ItemDAO extends BaseDAO
 	 *            The id of item that needs to be fetched.
 	 * @return Item object corresponding to the id. If the id is wrong, null will be returned.
 	 */
-	public Item getItem(int itemid)
+	public Item getItem(int itemId)
 		{
-		Item item = new Item();
-		item.setId(itemid);
-		item = entityManager.merge(item);
+		Item item = entityManager.find(Item.class, itemId);
+		entityManager.refresh(item);
 		return item;
 		}
 	}

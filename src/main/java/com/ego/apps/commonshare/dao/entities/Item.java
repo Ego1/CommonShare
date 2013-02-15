@@ -41,6 +41,32 @@ public class Item
 	@JoinColumn(name = "taxonomy", referencedColumnName = "id")
 	private Taxonomy taxonomy;
 
+	/* ************************** Methods *********************************** */
+	public String toString()
+		{
+		StringBuilder builder = new StringBuilder();
+		builder.append("Item [Id: ");
+		builder.append(id);
+		builder.append(", Name: ");
+		builder.append(name);
+		builder.append(", Description: ");
+		builder.append(description);
+		if (taxonomy != null)
+			{
+			builder.append(", Taxonomy: ");
+			builder.append(taxonomy.getName());
+			}
+		if(userGroup != null)
+			{
+			builder.append(", Group: ");
+			builder.append(userGroup.getName());
+			}
+		builder.append("]");
+		return builder.toString();
+		
+		}
+	
+	/* ************************* Getters and Setters ****************************** */
 	public int getId()
 		{
 		return id;
