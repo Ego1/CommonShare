@@ -1,5 +1,6 @@
 package com.ego.apps.commonshare.actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -16,6 +17,7 @@ import com.ego.apps.commonshare.dao.entities.Item;
 import com.ego.apps.commonshare.dao.entities.Purchase;
 import com.ego.apps.commonshare.dao.entities.User;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
+import com.ego.apps.commonshare.util.DateUtils;
 
 public class PurchaseManagementAction extends BaseAction
 	{
@@ -27,6 +29,7 @@ public class PurchaseManagementAction extends BaseAction
 
 	private List<User> users;
 	private List<Item> items;
+	private List<PurchaseUIVO> purchases;
 	private PurchaseUIVO purchaseUIVO = new PurchaseUIVO();
 	private AjaxResult ajaxResult;
 
@@ -73,6 +76,37 @@ public class PurchaseManagementAction extends BaseAction
 		return RESULT_SUCCESS;
 		}
 
+	public String showPurchases()
+		{
+		SessionCache cache = SessionCacheManager.getSessionCache(request);
+		Group userGroup = cache.getUser().getGroup();
+		GroupDAO groupDAO = new GroupDAO();
+		// Get all the users.
+		users = groupDAO.getAllUsersInGroup(userGroup.getName());
+		// Get all the purchases for this group.
+		PurchaseDAO purchaseDAO = new PurchaseDAO();
+		List<Purchase> rawpurchases = purchaseDAO.getPurchaseForGroup(userGroup.getName());
+		// // Collect all the items for item selection list.
+		ItemDAO itemDAO = new ItemDAO();
+		items = itemDAO.getAllItems(userGroup.getName());
+		// Create purchase ui vos
+		purchases = new ArrayList<PurchaseUIVO>();
+		for (int ctr = 0; ctr < rawpurchases.size(); ctr++)
+			{
+			PurchaseUIVO purchaseUIVO = new PurchaseUIVO();
+			Purchase rawPurchase = rawpurchases.get(ctr);
+			purchaseUIVO.setPurchaseId(rawPurchase.getId());
+			purchaseUIVO.setItemname(rawPurchase.getItem().getName());
+			purchaseUIVO.setDate(DateUtils.getDateFormat_dd_MMM(rawPurchase.getPurchaseDate()));
+			purchaseUIVO.setComment(rawPurchase.getComment());
+			purchaseUIVO.setExcludeFromShare(rawPurchase.getExcludedPersons());
+			purchaseUIVO.setPaymentSpread(rawPurchase.getPaidBy());
+			// Add the uivo to purchases
+			purchases.add(purchaseUIVO);
+			}
+		return RESULT_SUCCESS;
+		}
+
 	/* ***************************** Getters and Setters ******************************* */
 	public List<User> getUsers()
 		{
@@ -113,6 +147,15 @@ public class PurchaseManagementAction extends BaseAction
 		{
 		this.ajaxResult = ajaxResult;
 		}
-	
+
+	public List<PurchaseUIVO> getPurchases()
+		{
+		return purchases;
+		}
+
+	public void setPurchases(List<PurchaseUIVO> purchases)
+		{
+		this.purchases = purchases;
+		}
 
 	}

@@ -57,3 +57,34 @@
 	padding: 10px;
 	border-radius: 10px;
 }
+
+table
+{
+	clear:both;
+	padding: 5px;
+	height: auto;
+	text-align: left;
+	background-color: #000000;
+	
+}
+
+thead
+{
+	color: #F7B504;
+}
+
+tbody
+{
+	color: #F3EFD6;
+}
+
+tr
+{
+	border-bottom: 1px solid #F7B504;
+	padding: 5px;
+}
+
+td,th
+{
+	padding: 0 0 0 15px;
+}

@@ -119,6 +119,11 @@
 		<action name="addPurchase" class="com.ego.apps.commonshare.actions.PurchaseManagementAction" method="addPurchase">
 			<result name="SUCCESS">/WEB-INF/pages/p/ajaxResult.jsp</result>
 		</action>
+		
+		<action name="showPurchases" class="com.ego.apps.commonshare.actions.PurchaseManagementAction" method="showPurchases">
+			<result name="SUCCESS">/WEB-INF/pages/p/showPurchases.jsp</result>
+		</action>
+		
 		<!-- Item purchases end-->
 	</package>	
 </struts>

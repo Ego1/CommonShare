@@ -136,7 +136,6 @@ function validateAndSubmit(event)
 	{
 		messages.clearErrorMessage();
 		messages.addErrorMessages(errors);
-		event.preventDefault();
 	}
 	
 	// Validation is complete
@@ -159,13 +158,21 @@ function validateAndSubmit(event)
 	for(var ctr = 0; ctr < spreads.length; ctr++)
 	{
 		var id = spreads[ctr].id;
-		paymentSpread = paymentSpread + "[" + id.replace("paymentSpread","") + "," + $("input#"+id).val() + "],";
+		if($("input#"+id).val() == "" || $("input#"+id).val() == undefined)
+		{
+		// This user hasn't made any payment.
+		continue;
+		}
+		paymentSpread = paymentSpread + id.replace("paymentSpread","") + ":" + $("input#"+id).val() + ",";
 	}
 	$("input#paymentSpread").val(paymentSpread);
 	
 	// Since we are making an AJAX call, we shall prevent default propagation. And then fire AJAX.
 	event.preventDefault();
-	$.post(addPurchaseURL, $('form#addPurchaseForm').serialize(),addPurchaseSuccess).error(addPurchaseFailure).complete(addPurchaseComplete);
+	if(errors.length == 0)
+		{
+		$.post(addPurchaseURL, $('form#addPurchaseForm').serialize(),addPurchaseSuccess).error(addPurchaseFailure).complete(addPurchaseComplete);
+		}
 }
 
 function addPurchaseSuccess(data)

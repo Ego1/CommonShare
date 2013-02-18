@@ -69,7 +69,6 @@
 				</s:iterator>
 			];
 	</script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}js/datePicker.js"></script>
 	<link href="${pageContext.request.contextPath}css/lib/autocomplete.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/lib/autocomplete.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/p/addPurchase.js"></script>

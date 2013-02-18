@@ -10,10 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "purchase")
+@NamedQueries(
+	{ @NamedQuery(name = "GET_ALL_PURCHASES_FOR_GROUP", query = "SELECT p FROM Purchase p JOIN p.userGroup g WHERE g.name = :groupName") })
 public class Purchase
 	{
 	@Id

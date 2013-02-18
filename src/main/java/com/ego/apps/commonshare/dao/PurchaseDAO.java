@@ -1,5 +1,10 @@
 package com.ego.apps.commonshare.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Query;
+
 import com.ego.apps.commonshare.dao.entities.Group;
 import com.ego.apps.commonshare.dao.entities.Item;
 import com.ego.apps.commonshare.dao.entities.Purchase;
@@ -16,10 +21,19 @@ public class PurchaseDAO extends BaseDAO
 		ItemDAO itemDAO = new ItemDAO();
 		Item item = itemDAO.getItem(purchase.getItem().getId());
 		purchase.setItem(item);
-		System.out.println("------------------------------------------ Obtained item as: " + item);
 		// Step 3: Persist
 		entityManager.getTransaction().begin();
 		entityManager.persist(purchase);
 		entityManager.getTransaction().commit();
+		}
+
+	@SuppressWarnings("unchecked")
+	public List<Purchase> getPurchaseForGroup(String groupName)
+		{
+		List<Purchase> purchases = new ArrayList<Purchase>();
+		Query query = entityManager.createNamedQuery("GET_ALL_PURCHASES_FOR_GROUP");
+		query.setParameter("groupName", groupName);
+		purchases = query.getResultList();
+		return purchases;
 		}
 	}

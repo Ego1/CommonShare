@@ -7,6 +7,7 @@ import com.ego.apps.commonshare.util.DateUtils;
 
 public class PurchaseUIVO
 	{
+	private int purchaseId;
 	private String itemname;
 	private String itemid;
 	private String date;
@@ -40,9 +41,20 @@ public class PurchaseUIVO
 
 	/* ************************** Getters and Setters ************************** */
 
+	
 	public String getItemname()
 		{
 		return itemname;
+		}
+
+	public int getPurchaseId()
+		{
+		return purchaseId;
+		}
+
+	public void setPurchaseId(int purchaseId)
+		{
+		this.purchaseId = purchaseId;
 		}
 
 	public void setItemname(String itemname)
