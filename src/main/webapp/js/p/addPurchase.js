@@ -3,11 +3,20 @@ $(document).ready(initAddPurchase);
 /* **************** Global Variables *********************** */
 var autocomplete;
 var messages;
+var userMap;
 /* ********************************************************* */
 
 function initAddPurchase() {
 	// Initialize messaging
 	messages = new Messages();
+	
+	// Initializing usermap
+	userMap = new HashMap();
+	for(var userCtr = 0; userCtr < users.length; userCtr++)
+		{
+		var user = users[userCtr];
+		userMap.put(user.id, user);
+		}
 	
 	// Add date picker control.
 	$("input#tbpurchasedate").datepicker({
@@ -182,6 +191,43 @@ function addPurchaseSuccess(data)
 		// Adding purchase was successful.
 		messages.addSuccessMessage(data.message);
 		
+		// Need to populate the table too.
+		var newRow = "<tr>";
+		// Date
+		newRow = newRow + "<td>" + $("input#tbpurchasedate").val() + "</td>";
+		// Item name
+		newRow = newRow + "<td>" + $("input#tbitem").val() + "</td>";
+		// Payment spread
+		var spreads = $("[name^=paymentSpread]");
+		var paymentSpread = "";
+		for(var paymentSpreadCtr = 0; paymentSpreadCtr < spreads.length; paymentSpreadCtr++)
+		{
+			var id = spreads[paymentSpreadCtr].id;
+			if($("input#"+id).val() == "" || $("input#"+id).val() == undefined)
+			{
+			// This user hasn't made any payment.
+			continue;
+			}
+			paymentSpread = paymentSpread + "<br/>" + userMap.get(parseInt(id.replace("paymentSpread",""))).name + ":" + $("input#"+id).val();
+		}
+		newRow = newRow + "<td>" + paymentSpread.substring(5) + "</td>";
+		// Exclusions
+		var checkBoxes = $("[name^=excludeFromShare]");
+		var excludedUsers = "";
+		for(var exclusionCtr = 0; exclusionCtr < checkBoxes.length; exclusionCtr++)
+		{
+			var id = checkBoxes[exclusionCtr].id;
+			if($("input#"+id).prop('checked') == true)
+			{
+				// This user is excluded
+				excludedUsers = excludedUsers + "<br/>" + userMap.get(parseInt(id.replace("excludeFromShare",""))).name; 
+			}
+		}
+		newRow = newRow + "<td>" + excludedUsers.substring(5) + "</td>";
+		newRow = newRow + "</tr>";
+		$("table#purchasesTable").append(newRow);
+		$("div#purchasesAddedSummary").show();
+		$("form#addPurchaseForm")[0].reset();
 		}
 	else
 		{

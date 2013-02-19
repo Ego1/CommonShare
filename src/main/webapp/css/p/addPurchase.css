@@ -1,0 +1,12 @@
+.purchaseFormDiv
+{
+	width: 510px;
+	float: left;
+}
+
+.addedPurchasesDiv
+{
+	width: 400px;
+	float: left;
+	display: none;
+}

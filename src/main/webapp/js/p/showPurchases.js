@@ -24,9 +24,9 @@ function initShowPurchases() {
 		var paymentSpreadStr = "";
 		var allPaymentSpreadById = purchase.paymentSpread;
 		var perPersonPaymentSpreads = allPaymentSpreadById.split(",");
-		for(var ctr = 0; ctr < perPersonPaymentSpreads.length; ctr++)
+		for(var spreadCtr = 0; spreadCtr < perPersonPaymentSpreads.length; spreadCtr++)
 			{
-			var perPersonPaymentSpread = perPersonPaymentSpreads[ctr];
+			var perPersonPaymentSpread = perPersonPaymentSpreads[spreadCtr];
 			if(perPersonPaymentSpread == "")
 				{
 				// No payment spread was specified.
@@ -39,13 +39,20 @@ function initShowPurchases() {
 		newRow = newRow + "<td>" + paymentSpreadStr + "</td>";
 		// Exclusions
 		var excludedPersonsIdString = purchase.excludePersons;
-		var excludedPersons = excludedPersonsIdString.split(",");
 		var excludedPersonsString = "";
-		for(var ctr = 0; ctr < excludedPersons.length; ctr++)
+		if(excludedPersonsIdString.trim() == "")
 			{
-			excludedPersonsString = excludedPersonsString + "<br/>" + userMap.get(parseInt(excludedPersons[ctr])).name;
+			// There is no value mentioned.
 			}
-		excludedPersonsString = excludedPersonsString.substring(5);
+		else
+			{
+			var excludedPersons = excludedPersonsIdString.split(",");
+			for(var exclusionCtr = 0; exclusionCtr < excludedPersons.length; exclusionCtr++)
+				{
+				excludedPersonsString = excludedPersonsString + "<br/>" + userMap.get(parseInt(excludedPersons[exclusionCtr])).name;
+				}
+			excludedPersonsString = excludedPersonsString.substring(5);
+			}
 		newRow = newRow + "<td>" + excludedPersonsString + "</td>";
 		// Comments
 		newRow = newRow + "<td>" + purchase.comment + "</td>";

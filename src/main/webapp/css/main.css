@@ -65,7 +65,9 @@ table
 	height: auto;
 	text-align: left;
 	background-color: #000000;
-	
+	border-collapse: collapse;
+	border-radius: 5px;
+	border: 1px solid #595959;
 }
 
 thead
@@ -80,11 +82,20 @@ tbody
 
 tr
 {
-	border-bottom: 1px solid #F7B504;
+	border-bottom: 1px solid #595959;
 	padding: 5px;
 }
 
-td,th
+th
 {
-	padding: 0 0 0 15px;
+	border-bottom: 2px solid #595959;
+	padding: 9px 8px 0;
+	border-right: 1px dashed #262626;
+}
+
+
+td
+{
+	padding: 9px 10px 0;
+	border-right: 1px dashed #262626;
 }

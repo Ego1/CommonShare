@@ -9,7 +9,7 @@ import com.ego.apps.commonshare.exceptions.CSBusinessException;
 
 public class DateUtils
 	{
-	private static DateFormat format_dd_mm_yyyy = new SimpleDateFormat("dd/mm/yyyy");
+	private static DateFormat format_dd_mm_yyyy = new SimpleDateFormat("dd/MM/yyyy");
 	private static DateFormat format_dd_month = new SimpleDateFormat("dd MMM");
 
 	public static Date getDateFromFormat_dd_mm_yyyy(String date) throws CSBusinessException
@@ -29,9 +29,13 @@ public class DateUtils
 		return format_dd_month.format(date);
 		}
 	
-	public static void main(String args[])
+	public static void main(String args[]) throws CSBusinessException
 		{
 		Date date = new Date();
 		System.out.println(getDateFormat_dd_MMM(date));
+		
+		String strDate = "04/02/2013";
+		System.out.println(getDateFromFormat_dd_mm_yyyy(strDate));
+		
 		}
 	}
