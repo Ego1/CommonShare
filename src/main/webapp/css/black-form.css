@@ -95,27 +95,3 @@
 	padding: 0 5px 0 5px;
     line-height: 30px;
 }
-
-.formdiv .submitbutton
-{
-	width: 180px;
-	height: 53px;
-	border: 1px solid #262626;
-	margin: 0 15px 0 0;
-	background-color: #F3EFD6;
-	font-size: 24px;
-	font-weight: bold;
-}
-
-.formdiv .submitbutton:hover
-{
-	
-	background-color: #000000;
-	color: #F3EFD6;
-	font-size: 24px;
-	font-weight: bold;
-	width: 180px;
-	height: 53px;
-	border: 1px solid #262626;
-	margin: 0 5px; 0 0;
-}

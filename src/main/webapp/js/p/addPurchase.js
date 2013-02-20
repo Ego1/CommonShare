@@ -186,6 +186,8 @@ function validateAndSubmit(event)
 
 function addPurchaseSuccess(data)
 {
+	messages.clearErrorMessage();
+	messages.clearMessages();
 	if(data.result == "true" || data.result == true)
 		{
 		// Adding purchase was successful.
@@ -238,13 +240,9 @@ function addPurchaseSuccess(data)
 
 function addPurchaseFailure(data)
 {
+	messages.clearErrorMessage();
 	messages.addErrorMessage("Error :: Adding a purchase fialed: " + data.message);
 }
-
-function addPurchaseComplete(data)
-{
-}
-
 
 /**
  * Invoked on key down event of the payment spread text box.

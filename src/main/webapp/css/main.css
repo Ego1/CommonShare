@@ -51,11 +51,13 @@
 
 .moduleBodyDiv
 {
-	opacity: 0.85;
+	opacity: 1;
 	background-color: white;
 	margin: 5px;
 	padding: 10px;
 	border-radius: 10px;
+	display: inline-block;
+	width: 100%;
 }
 
 table
@@ -98,4 +100,26 @@ td
 {
 	padding: 9px 10px 0;
 	border-right: 1px dashed #262626;
+}
+
+.submitbutton
+{
+	height: 53px;
+	border: 1px solid #262626;
+	margin: 0 15px 0 0;
+	background-color: #F3EFD6;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.submitbutton:hover
+{
+	
+	background-color: #000000;
+	color: #F3EFD6;
+	font-size: 24px;
+	font-weight: bold;
+	height: 53px;
+	border: 1px solid #262626;
+	margin: 0 5px; 0 0;
 }

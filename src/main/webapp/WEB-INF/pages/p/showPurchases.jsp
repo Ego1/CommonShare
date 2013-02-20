@@ -5,7 +5,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <cspage:defaultpage title="Home">
 	<script type="text/javascript">
-		var addPurchaseURL = "${pageContext.request.contextPath}p/addPurchase.action";
+		var calculateShareURL = "${pageContext.request.contextPath}p/calculateShare.action";
 	</script>
 	<div class="appBodyDiv">
 		<div class="moduleHeaderDiv" id="moduleHeader">Add Purchase</div>
@@ -28,6 +28,7 @@
 				<tbody>
 				</tbody> 
 			</table>
+			<button id="performCalculationsButton" class="submitbutton" style ="display:none">Perform Calculations</button>
 		</div>
 	</div>
 	<script type="text/javascript">

@@ -123,7 +123,12 @@
 		<action name="showPurchases" class="com.ego.apps.commonshare.actions.PurchaseManagementAction" method="showPurchases">
 			<result name="SUCCESS">/WEB-INF/pages/p/showPurchases.jsp</result>
 		</action>
-		
 		<!-- Item purchases end-->
+		
+		<!-- Share Calculation begins -->
+		<action name="calculateShare" class="com.ego.apps.commonshare.actions.ShareManagementAction" method="calculateShare">
+			<result name="SUCCESS">/WEB-INF/pages/p/ajaxResult.jsp</result>
+		</action>
+		<!-- Share Calculation ends -->
 	</package>	
 </struts>
