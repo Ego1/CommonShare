@@ -3,6 +3,7 @@ package com.ego.apps.commonshare.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.ego.apps.commonshare.dao.entities.Group;
@@ -11,6 +12,16 @@ import com.ego.apps.commonshare.dao.entities.Purchase;
 
 public class PurchaseDAO extends BaseDAO
 	{
+	public PurchaseDAO()
+		{
+		super();
+		}
+
+	public PurchaseDAO(EntityManager entityManager)
+		{
+		super(entityManager);
+		}
+
 	public void addPurchase(Purchase purchase)
 		{
 		// Step 1: Get the group object
@@ -34,6 +45,18 @@ public class PurchaseDAO extends BaseDAO
 		Query query = entityManager.createNamedQuery("GET_ALL_PURCHASES_FOR_GROUP");
 		query.setParameter("groupName", groupName);
 		purchases = query.getResultList();
+		return purchases;
+		}
+
+	@SuppressWarnings("unchecked")
+	public List<Purchase> getPurchasesSinceLastCalculation(String groupName)
+		{
+		CalculationsDAO calculationsDAO = new CalculationsDAO(entityManager);
+		int lastPurchaseId = calculationsDAO.getLastCalculationId(groupName);
+		Query query = entityManager.createNamedQuery("GET_PURCHASES_FOR_GROUP_AFTER_PURCHASE_ID");
+		query.setParameter("groupName", groupName);
+		query.setParameter("purchaseId", lastPurchaseId);
+		List<Purchase> purchases = query.getResultList();
 		return purchases;
 		}
 	}

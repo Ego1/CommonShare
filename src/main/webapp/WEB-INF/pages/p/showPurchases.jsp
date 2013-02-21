@@ -29,6 +29,9 @@
 				</tbody> 
 			</table>
 			<button id="performCalculationsButton" class="submitbutton" style ="display:none">Perform Calculations</button>
+			<form id="calculatePurchase">
+				<input type="hidden" name="description" id="description">
+			</form>
 		</div>
 	</div>
 	<script type="text/javascript">

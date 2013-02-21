@@ -17,7 +17,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "purchase")
 @NamedQueries(
-	{ @NamedQuery(name = "GET_ALL_PURCHASES_FOR_GROUP", query = "SELECT p FROM Purchase p JOIN p.userGroup g WHERE g.name = :groupName") })
+	{ @NamedQuery(name = "GET_ALL_PURCHASES_FOR_GROUP", query = "SELECT p FROM Purchase p JOIN p.userGroup g WHERE g.name = :groupName"),
+	@NamedQuery(name = "GET_PURCHASES_FOR_GROUP_AFTER_PURCHASE_ID", query = "SELECT p FROM Purchase p JOIN p.userGroup g WHERE g.name = :groupName AND p.id > :purchaseId")})
 public class Purchase
 	{
 	@Id

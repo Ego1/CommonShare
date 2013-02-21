@@ -85,7 +85,7 @@ public class PurchaseManagementAction extends BaseAction
 		users = groupDAO.getAllUsersInGroup(userGroup.getName());
 		// Get all the purchases for this group.
 		PurchaseDAO purchaseDAO = new PurchaseDAO();
-		List<Purchase> rawpurchases = purchaseDAO.getPurchaseForGroup(userGroup.getName());
+		List<Purchase> rawpurchases = purchaseDAO.getPurchasesSinceLastCalculation(userGroup.getName());
 		// // Collect all the items for item selection list.
 		ItemDAO itemDAO = new ItemDAO();
 		items = itemDAO.getAllItems(userGroup.getName());

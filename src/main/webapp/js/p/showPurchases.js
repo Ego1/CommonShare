@@ -76,9 +76,10 @@ function initShowPurchases() {
 function calculateShare()
 	{
 	var description = prompt("Please enter a description for the calculation and press OK.\nPress cancel to cancel the calculation.");
+	$("input#description").val(description);
 	if (description!=null && description!="")
 		{
-		$.post(calculateShareURL, {"description": description},calculationSuccess).error(calculationFailure);
+		$.post(calculateShareURL, $("form#calculatePurchase").serialize(),calculationSuccess).error(calculationFailure);
 		}	
 	}
 
