@@ -1,11 +1,9 @@
 package com.ego.apps.commonshare.dao;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.ego.apps.commonshare.dao.entities.Purchase;
+import com.ego.apps.commonshare.dao.entities.Calculation;
 
 public class CalculationsDAO extends BaseDAO
 	{
@@ -17,6 +15,18 @@ public class CalculationsDAO extends BaseDAO
 	public CalculationsDAO(EntityManager entityManager)
 		{
 		super(entityManager);
+		}
+
+	/**
+	 * Adds a calculation into database.
+	 * 
+	 * @param calculation
+	 *            The calculation object that needs to be added into database. This same object will be updated by the
+	 *            calculation id.
+	 */
+	public void addCalculation(Calculation calculation)
+		{
+		entityManager.persist(calculation);
 		}
 
 	/**
@@ -41,12 +51,5 @@ public class CalculationsDAO extends BaseDAO
 			{
 			return lastCalculationId;
 			}
-		}
-	
-	public void calculatePurchaseSinceLastPurchase(String groupName)
-		{
-		PurchaseDAO purchaseDAO = new PurchaseDAO(entityManager);
-		List<Purchase> purchasesToBeCalculated = purchaseDAO.getPurchasesSinceLastCalculation(groupName);
-		// Perform the purchase calculation here
 		}
 	}
