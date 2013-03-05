@@ -54,12 +54,17 @@ public class PurchaseManagementAction extends BaseAction
 		{
 		try
 			{
-			Purchase purchase = purchaseUIVO.getPurchase();
+			// Get user's group information
 			SessionCache cache = SessionCacheManager.getSessionCache(request);
 			Group userGroup = cache.getUser().getGroup();
+			
+			// Add purchase to database
+			Purchase purchase = purchaseUIVO.getPurchase();
 			purchase.setUserGroup(userGroup);
 			PurchaseDAO purchaseDAO = new PurchaseDAO();
 			purchaseDAO.addPurchase(purchase);
+			
+			// Write down the ajax result object.
 			ajaxResult = new AjaxResult();
 			ajaxResult.setResult(true);
 			ajaxResult.setMessage("Purchase added successfully.");

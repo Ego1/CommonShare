@@ -129,6 +129,15 @@
 		<action name="calculateShare" class="com.ego.apps.commonshare.actions.ShareManagementAction" method="calculateShare">
 			<result name="SUCCESS">/WEB-INF/pages/p/ajaxResult.jsp</result>
 		</action>
+		
+		<action name="showCalculations" class="com.ego.apps.commonshare.actions.ShareManagementAction" method="showCalculations">
+			<result name="SUCCESS">/WEB-INF/pages/p/showCalculations.jsp</result>
+		</action>
+		
+		<action name="showACalculation" class="com.ego.apps.commonshare.actions.ShareManagementAction" method="showACalculation">
+			<result name="SUCCESS">/WEB-INF/pages/p/showACalculation.jsp</result>
+			<result name="ERROR">/WEB-INF/pages/p/showACalculation.jsp</result>
+		</action> 
 		<!-- Share Calculation ends -->
 	</package>	
 </struts>

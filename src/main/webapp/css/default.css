@@ -1,6 +1,7 @@
 body 
 {
-	background-image: url('../images/brick1_bg.jpg');
+	/* background-image: url('../images/brick1_bg.jpg'); */
+	background-color: #000000;
 	color: #F8F6F4;
 	font-family: Arial, sans-serif;
 	font-size: 14px;

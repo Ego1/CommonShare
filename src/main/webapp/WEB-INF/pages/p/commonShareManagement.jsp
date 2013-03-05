@@ -22,7 +22,7 @@
 				<div class="header">Purchase Management</div>
 				<a href="${pageContext.request.contextPath}p/showPurchases.action" class="thumbmenuitem">Purchases</a>
 				<a href="${pageContext.request.contextPath}p/showAddPurchase.action" class="thumbmenuitem">Add Purchases</a>
-				<a href="${pageContext.request.contextPath}p/calculateShare.action" class="thumbmenuitem">Calculate Present Shares</a>
+				<a href="${pageContext.request.contextPath}p/showCalculations.action" class="thumbmenuitem">Calculate Present Shares</a>
 				<a href="${pageContext.request.contextPath}p/showPurchases.action" class="thumbmenuitem">Pay Status</a>
 			</div>
 		</div>

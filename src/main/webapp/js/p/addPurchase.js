@@ -156,7 +156,7 @@ function validateAndSubmit(event)
 		var id = checkBoxes[ctr].id;
 		if($("input#"+id).prop('checked') == true)
 		{
-			excludeFromShare = excludeFromShare + id.replace("excludeFromShare","") + " ";
+			excludeFromShare = excludeFromShare + id.replace("excludeFromShare","") + ",";
 		}
 	}
 	$("input#excludeFromShare").val(excludeFromShare);
@@ -180,7 +180,7 @@ function validateAndSubmit(event)
 	event.preventDefault();
 	if(errors.length == 0)
 		{
-		$.post(addPurchaseURL, $('form#addPurchaseForm').serialize(),addPurchaseSuccess).error(addPurchaseFailure).complete(addPurchaseComplete);
+		$.post(addPurchaseURL, $('form#addPurchaseForm').serialize(),addPurchaseSuccess).error(addPurchaseFailure);
 		}
 }
 

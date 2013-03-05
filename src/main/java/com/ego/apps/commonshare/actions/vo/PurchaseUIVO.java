@@ -14,7 +14,23 @@ public class PurchaseUIVO
 	private String comment;
 	private String excludeFromShare;
 	private String paymentSpread;
-	
+
+	public PurchaseUIVO()
+		{
+
+		}
+
+	public PurchaseUIVO(Purchase purchase)
+		{
+		this.purchaseId = purchase.getId();
+		this.itemname = purchase.getItem().getName();
+		this.itemid = "" + purchase.getItem().getId();
+		this.date = DateUtils.getDateFormat_dd_MMM(purchase.getPurchaseDate());
+		this.comment = purchase.getComment();
+		this.excludeFromShare = purchase.getExcludedPersons();
+		this.paymentSpread = purchase.getPaidBy();
+		}
+
 	/* ************************** Utility Methods ************************** */
 	public Purchase getPurchase() throws CSBusinessException
 		{
@@ -35,13 +51,12 @@ public class PurchaseUIVO
 		purchase.setComment(comment);
 		purchase.setExcludedPersons(excludeFromShare);
 		purchase.setPaidBy(paymentSpread);
-		
+
 		return purchase;
 		}
 
 	/* ************************** Getters and Setters ************************** */
 
-	
 	public String getItemname()
 		{
 		return itemname;

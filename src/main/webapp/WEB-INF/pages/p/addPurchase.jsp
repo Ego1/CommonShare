@@ -42,7 +42,7 @@
 							<input type="hidden" id="paymentSpread" name="purchaseUIVO.paymentSpread" value=""/>
 							<div id="paymentDiv" class="singleRowSet"></div>
 						</div>
-						<button id="submit" class="submitbutton"id="submit">Add Purchase</button>
+						<button id="submit" class="submitbutton">Add Purchase</button>
 					</div>
 				</form>
 			</div>	

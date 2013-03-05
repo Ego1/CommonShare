@@ -5,34 +5,28 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 
 <cspage:defaultpage title="Login">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/common/login.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/p/login.css"/>
 	<script src="${pageContext.request.contextPath}js/common/login.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		var ERROR_MISSING_ID_AND_PASSWORD = "Please enter both user id and password.";
 	</script>
-	<div id="loginDiv" class="loginDiv">
-		<cs:messageDisplay/>
+	<div class="loginDiv">
 		<form action="${pageContext.request.contextPath}login.action" id='loginForm' method="POST">
-			<div class="form size250px">
-				<ul class="elementul">
-					<li>
-						<label for="loginName">Login Name</label>
-						<input type="text" id="loginName" class="textinput" name="login.loginName"/>
-					</li>
-					<li>
-						<label for="password">Password</label>
-						<input type="password" id="password" class="textinput" name="login.password"/>
-					</li>
-				</ul>
-				<div class="spacer130">
-					<a href="#" id="submit" class="submitButton">Submit</a>
+			<div class="formdiv">
+				<cs:messageDisplay/>
+				<div class="formitem">
+					<label for="loginName">Login Name</label>
+					<input type="text" id="loginName" name="login.loginName"/>
 				</div>
+				<div class="formitem">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="login.password"/>
+				</div>
+				<button id="submit" class="submitbutton">Add Purchase</button>				
 				<span>
 					<a href="/showGroupRegistrationPage.action">Register yourself</a>
 				</span>					
 			</div>
-			
 		</form>
-		
 	</div>
 </cspage:defaultpage>

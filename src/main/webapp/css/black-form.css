@@ -1,12 +1,14 @@
 .formdiv
 {
 	clear:both;
-	width: 500px;
+	width: 100%;
 	border-radius: 10px;
 	border: 2px solid #262626;
 	height: auto;
 	text-align: left;
-	background-color: #000000;
+	/*background-color: #000000;*/
+	/*display: block;*/
+	padding: 10px;
 }
 
 .formdiv .formitem
@@ -14,16 +16,17 @@
 	float: left;
 	margin: 5px 5px;
 	clear: both;
-	padding: 5px;
+	display: block-inline;
+	width: 100%;
 }
 
 .formdiv .formitem label
 {
 	float: left;
 	color: #F3EFD6;
-    font-size: 20px;
+    font-size: 18px;
 	text-align: right;
-	width: 100px;
+	width: 25%;
 	margin: 0 10px 0 0;
 }
 
@@ -32,7 +35,7 @@
 	background: none repeat scroll 0 0 #151515;
     border: 1px solid #262626;
 	float: left;
-	width: 360px;
+	width: 70%;
 	padding: 0 0 0 5px;
 	color: #F3EFD6;
     font-size: 18px;
@@ -84,14 +87,15 @@
 
 .formdiv .formitem input
 {
-	float: right;
+	float: left;
 	background: none repeat scroll 0 0 #151515;
     border: 1px solid #262626;
     color: #F7B504;
     font-family: 'Bitter',serif;
     font-size: 16px;
     height: 35px;
-	width: 350px;
+	width: 65%;
+	/*margin: 0 5px 0 0;*/
 	padding: 0 5px 0 5px;
     line-height: 30px;
 }

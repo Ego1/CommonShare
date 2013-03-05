@@ -10,6 +10,7 @@
 	<div class="appBodyDiv">
 		<div class="moduleHeaderDiv" id="moduleHeader">Add Purchase</div>
 		<div class="moduleBodyDiv">
+			<message:messageDisplay></message:messageDisplay>
 			<p>
 			Here we show only those purchases that have not been calculated yet.
 			To view purchases that have already been calculated, please visit different section.
@@ -25,7 +26,7 @@
 						<th>Actions</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="purchaseTableBody">
 				</tbody> 
 			</table>
 			<button id="performCalculationsButton" class="submitbutton" style ="display:none">Perform Calculations</button>
@@ -48,7 +49,7 @@
 				 
 			];
 		
-		var items = 
+		/*var items = 
 			[
 				<s:iterator value="items">
 					{
@@ -56,7 +57,7 @@
 					"name": "<s:property value="name"/>"
 					},
 				</s:iterator>
-			];
+			];*/
 		
 		var purchases = 
 			[
@@ -73,5 +74,7 @@
 			];
 	</script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/lib/string-hashmap.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}js/lib/spread-utils.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}js/lib/purchase-utils.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/p/showPurchases.js"></script>
 </cspage:defaultpage>

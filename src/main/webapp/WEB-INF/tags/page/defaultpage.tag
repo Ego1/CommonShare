@@ -17,7 +17,6 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/default.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/main.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/tabs.css">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/forms.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/black-form.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/sizes.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/jqueryui.css">
