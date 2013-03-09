@@ -1,6 +1,5 @@
 package com.ego.apps.commonshare.dao;
 
-import java.awt.Robot;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -8,9 +7,7 @@ import javax.persistence.Query;
 import com.ego.apps.commonshare.actions.vo.ItemVO;
 import com.ego.apps.commonshare.dao.entities.Group;
 import com.ego.apps.commonshare.dao.entities.Item;
-import com.ego.apps.commonshare.dao.entities.Taxonomy;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
-import com.ego.apps.commonshare.util.StringUtils;
 
 public class ItemDAO extends BaseDAO
 	{
@@ -50,17 +47,8 @@ public class ItemDAO extends BaseDAO
 			throw new CSBusinessException("itemmanagement.error.invalidgroup");
 			}
 
-		TaxonomyDAO taxonomyDAO = new TaxonomyDAO();
-		Taxonomy taxonomy = taxonomyDAO.getTaxonomyById(itemVO.getTaxonomy());
-		if (taxonomy == null)
-			{
-			entityManager.getTransaction().rollback();
-			throw new CSBusinessException("itemmanagement.error.taxonomy-doesnt-exist");
-			}
-
 		Item item = new Item();
 		item.setUserGroup(group);
-		item.setTaxonomy(taxonomy);
 		item.setName(itemVO.getName());
 		item.setDescription(itemVO.getDescription());
 		entityManager.persist(item);

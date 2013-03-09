@@ -80,11 +80,11 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 			{
 			return RESULT_ERROR;
 			}
-		
+
 		// Get the user profile object of current user from session and use it's group.
 		SessionCache sessionCache = SessionCacheManager.getSessionCache(request);
-		String groupName = sessionCache.getUser().getGroup().getName(); 
-		
+		String groupName = sessionCache.getUser().getGroup().getName();
+
 		UserDAO userDao = new UserDAO();
 		try
 			{
@@ -93,10 +93,12 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 		catch (CSBusinessException e)
 			{
 			handleBusinessException(e);
+			return RESULT_ERROR;
 			}
 		catch (CSSystemException e)
 			{
 			handleSystemException(e);
+			return RESULT_ERROR;
 			}
 		return RESULT_SUCCESS;
 		}

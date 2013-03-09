@@ -25,6 +25,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 	protected Logger logger = Logger.getLogger(getClass());
 
 	public static String RESULT_SUCCESS = "SUCCESS";
+	public static String RESULT_AJAX = "AJAX";
 	public static String RESULT_ERROR = "ERROR";
 	public static String RESULT_INVALID_DATA = "INVALID_DATA";
 	public static String RESULT_LOGIN = "LOGIN";

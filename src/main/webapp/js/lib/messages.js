@@ -1,7 +1,10 @@
 function Messages()
 {
+	var errormsgs = new Array();
+	var simplemsgs = new Array();
 	this.addErrorMessage = function(message)
 	{
+		errormsgs.push(message);
 		var messageul = $("ul#errormessageul");
 		if(messageul.length == 0)
 			{
@@ -13,6 +16,7 @@ function Messages()
 	
 	this.addErrorMessages = function(messages)
 	{
+		mserrormsgsgs.push(messages);
 		for(var ctr = 0; ctr < messages.length; ctr++)
 			{
 			this.addErrorMessage(messages[ctr]);
@@ -22,16 +26,25 @@ function Messages()
 	
 	this.clearErrorMessage = function()
 	{
-		$("ul#errormessageul").html = "";
+		errormsgs = new Array();
+		$("ul#errormessageul").html("");
 	};
 	
+	this.getErrorMessagesLength = function()
+	{
+		return errormsgs.length;
+	};
+	
+	/* ********************************* Simple Messages ************************* */	
 	this.clearMessages = function()
 	{
+		simplemsgs = new Array();
 		$("ul#messageul").html = "";
 	};
 	
 	this.addSuccessMessage = function(message)
 	{
+		simplemsgs.push(message);
 		var messageul = $("ul#messageul");
 		if(messageul.length == 0)
 			{

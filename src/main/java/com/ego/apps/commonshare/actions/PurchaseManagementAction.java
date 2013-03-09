@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 
 import com.ego.apps.commonshare.actions.vo.AjaxResult;
 import com.ego.apps.commonshare.actions.vo.PurchaseUIVO;
+import com.ego.apps.commonshare.cache.GroupCache;
+import com.ego.apps.commonshare.cache.GroupCacheManager;
 import com.ego.apps.commonshare.cache.SessionCache;
 import com.ego.apps.commonshare.cache.SessionCacheManager;
 import com.ego.apps.commonshare.dao.GroupDAO;
@@ -37,15 +39,13 @@ public class PurchaseManagementAction extends BaseAction
 		{
 		// The main task for this is to populate the users in a group.
 		SessionCache cache = SessionCacheManager.getSessionCache(request);
-		Group userGroup = cache.getUser().getGroup();
-		GroupDAO groupDAO = new GroupDAO();
-
+		Group userGroup = cache.getGroup();
+		
 		// Collect all the users for exclusion list and payment spread.
-		users = groupDAO.getAllUsersInGroup(userGroup.getName());
-
+		GroupCache groupCache = GroupCacheManager.getGroupCache(userGroup.getName());
+		users = groupCache.getUsers();
 		// Collect all the items for item selection list.
-		ItemDAO itemDAO = new ItemDAO();
-		items = itemDAO.getAllItems(userGroup.getName());
+		items = groupCache.getItems();
 
 		return RESULT_SUCCESS;
 		}

@@ -4,7 +4,7 @@
 <%@taglib prefix="cspage" tagdir="/WEB-INF/tags/page"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 
-<cspage:defaultpage title="Login">
+<cspage:fullpage title="Login">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/p/login.css"/>
 	<script src="${pageContext.request.contextPath}js/common/login.js" type="text/javascript"></script>
 	<script type="text/javascript">
@@ -29,4 +29,4 @@
 			</div>
 		</form>
 	</div>
-</cspage:defaultpage>
+</cspage:fullpage>

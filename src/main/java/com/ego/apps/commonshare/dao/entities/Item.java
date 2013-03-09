@@ -37,10 +37,6 @@ public class Item
 	@JoinColumn(name = "usergroup", referencedColumnName = "id")
 	Group userGroup;
 	
-	@ManyToOne
-	@JoinColumn(name = "taxonomy", referencedColumnName = "id")
-	private Taxonomy taxonomy;
-
 	/* ************************** Methods *********************************** */
 	public String toString()
 		{
@@ -51,11 +47,6 @@ public class Item
 		builder.append(name);
 		builder.append(", Description: ");
 		builder.append(description);
-		if (taxonomy != null)
-			{
-			builder.append(", Taxonomy: ");
-			builder.append(taxonomy.getName());
-			}
 		if(userGroup != null)
 			{
 			builder.append(", Group: ");
@@ -105,17 +96,5 @@ public class Item
 	public void setUserGroup(Group userGroup)
 		{
 		this.userGroup = userGroup;
-		}
-
-	public Taxonomy getTaxonomy()
-		{
-		return taxonomy;
-		}
-
-	public void setTaxonomy(Taxonomy taxonomy)
-		{
-		this.taxonomy = taxonomy;
-		}
-	
-	
+		}	
 	}

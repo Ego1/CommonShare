@@ -61,16 +61,20 @@
 		<global-results>
 			<result name="home" type="chain">home</result>
 			<result name="login">/WEB-INF/pages/common/login.jsp</result>
+			<result name="AJAX">/WEB-INF/pages/p/ajaxResult.jsp</result>
 		</global-results>
 		
 		<action name="home">
 			<result>/WEB-INF/pages/p/home.jsp</result>
 		</action>
 		
-		<action name="userManagement" class="com.ego.apps.commonshare.actions.UserManagementAction" method="getAllUsers">
-			<result name="SUCCESS">/WEB-INF/pages/p/userManagement.jsp</result>
-			<result name="ERROR">/WEB-INF/pages/p/userManagement.jsp</result>
-			<result name="LOGIN" type="chain">login</result>
+		<action name="showAllUsers" class="com.ego.apps.commonshare.actions.UserManagementAction" method="getAllUsers">
+			<result name="SUCCESS">/WEB-INF/pages/p/showAllUsers.jsp</result>
+			<result name="ERROR">/WEB-INF/pages/p/showAllUsers.jsp</result>
+		</action>
+		
+		<action name="showAddUser">
+			<result>/WEB-INF/pages/p/addUser.jsp</result>
 		</action>
 		
 		<action name="addUser" class="com.ego.apps.commonshare.actions.UserRegistrationAction" method="registerUser">
@@ -91,23 +95,16 @@
 			<result name="SUCCESS" type="chain">home</result>
 		</action>
 		
-		<!-- Taxonomy management actions start here -->
-		<action name="showTaxonomyManagement" class="com.ego.apps.commonshare.actions.TaxonomyManagementAction" method="getAllTaxonomiesForGroup">
-			<result name="SUCCESS">/WEB-INF/pages/p/taxonomyManagement.jsp</result>
-		</action>		
-		
-		<action name="addTaxonomy" class="com.ego.apps.commonshare.actions.TaxonomyManagementAction" method="addTaxonomy">
-			<result name="SUCCESS">/WEB-INF/pages/p/ajaxResult.jsp</result>
-		</action>
-		<!-- Taxonomy management actions end here -->
-		
 		<!-- Item management actions start here -->
-		<action name="showItemManagement" class="com.ego.apps.commonshare.actions.ItemManagementAction" method="readyPage">
-			<result name="SUCCESS">/WEB-INF/pages/p/itemManagement.jsp</result>
+		<action name="showItems" class="com.ego.apps.commonshare.actions.ItemManagementAction" method="readyPage">
+			<result name="SUCCESS">/WEB-INF/pages/p/items.jsp</result>
+		</action>
+		
+		<action name="showAddItem" class="com.ego.apps.commonshare.actions.ItemManagementAction">
+			<result>/WEB-INF/pages/p/addItem.jsp</result>
 		</action>
 		
 		<action name="addItem" class="com.ego.apps.commonshare.actions.ItemManagementAction" method="addItem">
-			<result name="SUCCESS">/WEB-INF/pages/p/ajaxResult.jsp</result>
 		</action>
 		<!-- Item management actions end here -->
 		

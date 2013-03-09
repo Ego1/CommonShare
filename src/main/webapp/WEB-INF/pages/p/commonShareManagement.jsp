@@ -7,7 +7,7 @@
 <cspage:defaultpage title="Home Page">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/menu.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/p/commonShareManagement.css">
-	<div class="appBodyDiv">
+	<div class="bodyPane">
 		<div class="moduleHeaderDiv" id="moduleHeader">Common Share Management</div>
 		<message:messageDisplay/>
 		<div class="menublockdiv">

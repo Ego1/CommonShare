@@ -5,12 +5,12 @@ import java.util.List;
 
 import com.ego.apps.commonshare.actions.vo.AjaxResult;
 import com.ego.apps.commonshare.actions.vo.ItemVO;
+import com.ego.apps.commonshare.cache.GroupCache;
+import com.ego.apps.commonshare.cache.GroupCacheManager;
 import com.ego.apps.commonshare.cache.SessionCache;
 import com.ego.apps.commonshare.cache.SessionCacheManager;
 import com.ego.apps.commonshare.dao.ItemDAO;
-import com.ego.apps.commonshare.dao.TaxonomyDAO;
 import com.ego.apps.commonshare.dao.entities.Item;
-import com.ego.apps.commonshare.dao.entities.Taxonomy;
 import com.ego.apps.commonshare.dao.entities.comparators.ItemComparator;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
 
@@ -21,9 +21,8 @@ public class ItemManagementAction extends BaseAction
 	 * The default serial version id.
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private List<Item> items;
-	private List<Taxonomy> taxonomies;
 	private ItemVO itemVO;
 	private AjaxResult ajaxResult;
 
@@ -31,37 +30,34 @@ public class ItemManagementAction extends BaseAction
 		{
 		// Obtain the user's group name.
 		SessionCache sessionCache = SessionCacheManager.getSessionCache(request);
-		String groupName = sessionCache.getUser().getGroup().getName();
-		
+		String groupName = sessionCache.getGroup().getName();
+
 		// Obtain the items for this user.
-		ItemDAO itemDAO = new ItemDAO();
-		items = itemDAO.getAllItems(groupName);
-		
+		GroupCache groupCache = GroupCacheManager.getGroupCache(groupName);
+		items = groupCache.getItems();
+
 		// Sort the items according to taxonomy levels.
 		Collections.sort(items, new ItemComparator());
-		
-		// Obtain all the taxonomies allowed for this user.
-		TaxonomyDAO taxonomyDAO = new TaxonomyDAO();
-		taxonomies = taxonomyDAO.getTaxonomies(groupName);
-		
-		System.out.println("Items Size: " + items.size());
-		System.out.println("Taxonomies Size: " + taxonomies.size());
+
 		return RESULT_SUCCESS;
 		}
 
 	public String addItem()
 		{
 		SessionCache sessionCache = SessionCacheManager.getSessionCache(request);
-		String groupName = sessionCache.getUser().getGroup().getName();
+		String groupName = sessionCache.getGroup().getName();
 		ItemDAO itemDAO = new ItemDAO();
 		Item item = null;
 		ajaxResult = new AjaxResult();
 		try
 			{
 			item = itemDAO.addItem(itemVO, groupName);
+			// The item has been added successfully. So add it to group cache too.
+			GroupCache groupCache = GroupCacheManager.getGroupCache(groupName);
+			groupCache.getItems().add(item);
 			ajaxResult.setResult(true);
 			ajaxResult.setMessage("itemmanagement.success.itemadded");
-			ajaxResult.setData("{\"id\" : \"" + item.getId() + "\", \"name\": \"" + item.getName() + "\", \"description\":\"" + item.getDescription() + "\", \"taxonomy\" : \""+item.getTaxonomy().getId()+"\"}");
+			ajaxResult.setData("{\"id\" : \"" + item.getId() + "\", \"name\": \"" + item.getName() + "\", \"description\":\"" + item.getDescription() + "\"}");
 			}
 		catch (CSBusinessException e)
 			{
@@ -69,9 +65,10 @@ public class ItemManagementAction extends BaseAction
 			ajaxResult.setMessage(e.getMessage());
 			e.printStackTrace();
 			}
-		return RESULT_SUCCESS;
+		return RESULT_AJAX;
 		}
 
+	/* ****************************** GETTERS and SETTERS ************************ */
 	public List<Item> getItems()
 		{
 		return items;
@@ -80,16 +77,6 @@ public class ItemManagementAction extends BaseAction
 	public void setItems(List<Item> items)
 		{
 		this.items = items;
-		}
-
-	public List<Taxonomy> getTaxonomies()
-		{
-		return taxonomies;
-		}
-
-	public void setTaxonomies(List<Taxonomy> taxonomies)
-		{
-		this.taxonomies = taxonomies;
 		}
 
 	public ItemVO getItemVO()

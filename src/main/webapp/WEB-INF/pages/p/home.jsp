@@ -7,12 +7,8 @@
 <cspage:defaultpage title="Home Page">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/menu.css">
 	<script src="${pageContext.request.contextPath}js/p/home.js" type="text/javascript"></script>
-	<div class="appBodyDiv">
-		This is our home page.
-		<message:messageDisplay/>
-		<div class="thumbmenu">
-			<a href="${pageContext.request.contextPath}p/commonShareManagement.action" class="thumbmenuitem">Common Share</a>
-			<a href="${pageContext.request.contextPath}p/userManagement.action" class="thumbmenuitem">Add User</a>
-		</div>
+	<div class="bodyPane">
+		Welcome to home.<br>
+		Please select a link from left to continue.
 	</div>
 </cspage:defaultpage>

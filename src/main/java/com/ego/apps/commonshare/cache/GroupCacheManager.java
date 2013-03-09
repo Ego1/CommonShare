@@ -8,7 +8,7 @@ public class GroupCacheManager
 
 	private static Map<String, GroupCache> groupCacheMap;
 
-	public static void setGroupCacheItem(String groupName, GroupCache groupCache)
+	public static void setGroupCache(String groupName, GroupCache groupCache)
 		{
 		if (groupCacheMap == null)
 			{
@@ -17,7 +17,7 @@ public class GroupCacheManager
 		groupCacheMap.put(groupName, groupCache);
 		}
 
-	public static GroupCache getGroupItem(String groupName)
+	public static GroupCache getGroupCache(String groupName)
 		{
 		if (groupCacheMap == null)
 			{
@@ -26,7 +26,7 @@ public class GroupCacheManager
 		GroupCache groupCache = groupCacheMap.get(groupName);
 		if (groupCache == null)
 			{
-			groupCache = new GroupCache();
+			groupCache = new GroupCache(groupName);
 			groupCacheMap.put(groupName, groupCache);
 			}
 		return groupCache;

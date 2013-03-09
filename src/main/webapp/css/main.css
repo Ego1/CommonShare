@@ -1,6 +1,7 @@
 .appBodyDiv
 {
 	width: 1000px;
+	float: left;
 }
 
 .headerDiv
@@ -14,46 +15,89 @@
 	padding: 10px;
 }
 
+.pagebody
+{
+	display:block-inline;
+	clear: both;
+}
+
 .bodyDiv
 {
-	color: black;
-	margin: 5px;	
-	clear:both;
+	width: 780px;
+	margin: 0 0 0 10px;
+	padding: 5px 0 0 5px;
+	float: left;
+	text-align: left;
+	border: 1px solid #4D4D4D;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.menuDiv
+{
+	width: 200px;
+	float: left;
+	text-align: left;
+	background-color: #1D1D1D;
+	border: 1px solid #4D4D4D;
+	border-radius: 5px 5px 5px 5px;
+	color: #F3EFD6;
+}
+
+.menuDiv h3
+{
+	padding: 5px;
+}
+
+.menuDiv ul li
+{
+	text-decoration: none;
+	list-style: none outside none;
+	border: 1px solid #2D2D2D;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 0 0 0 -25px;
+	width: 160px;
+}
+
+.menuDiv ul li:hover
+{
+	background-color: #444444;
+}
+
+.menuDiv ul li a
+{
+	text-decoration: none;
+	width: 100%;
+	color: #F3EFD6;
+}
+
+.bodyPane
+{
+	display: inline-block;
 }
 
 .footerDiv
 {
-	widows: 100%;
 	min-height: 25px;
 	clear: both;
-	background-color: white;
 	opacity: 0.9;
-	color: black;
-	border-radius: 10px;
-	margin: 5px;
+	color: white;
+	margin: 10px 0 0 0;
+	font-family: fantasy;
 }
 
 .moduleHeaderDiv
 {
 	font-size: 20px;
 	font-style: oblique;
-	background-color: red;
-	opacity: 0.9;
 	padding: 10px;
-	border-radius: 10px;
 	clear: both;
 	float: center;
 }
 
 .moduleBodyDiv
 {
-	opacity: 1;
-	background-color: white;
-	margin: 5px;
-	padding: 10px;
-	border-radius: 10px;
-	display: inline-block;
-	width: 100%;
+
 }
 
 table
@@ -66,6 +110,7 @@ table
 	border-collapse: collapse;
 	border-radius: 5px;
 	border: 1px solid #595959;
+	margin: 0 0 5px 0;
 }
 
 thead

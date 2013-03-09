@@ -13,6 +13,7 @@
 		<script src="${pageContext.request.contextPath}js/lib/messages.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/default.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/main.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/tabs.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/black-form.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/sizes.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css/jqueryui.css">
@@ -22,9 +23,8 @@
 		<div class="appBodyDiv">
 			<cspage:header/>
 			<div class="pageBody">
-				<cspage:authorized_menu/>
 				<div class="bodyDiv">
-						<jsp:doBody/>
+					<jsp:doBody/>
 				</div>
 			</div>
 			<cspage:footer/>

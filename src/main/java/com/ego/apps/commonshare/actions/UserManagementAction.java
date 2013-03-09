@@ -23,9 +23,13 @@ public class UserManagementAction extends BaseAction
 		{
 		SessionCache sessionCache = SessionCacheManager.getSessionCache(request);
 		String groupName = sessionCache.getUser().getGroup().getName();
-		
-		GroupDAO groupDao = new GroupDAO();
-		users = groupDao.getAllUsersInGroup(groupName);
+		users = sessionCache.getGroup().getUsers();
+		if(users == null)
+			{
+			GroupDAO groupDao = new GroupDAO();
+			users = groupDao.getAllUsersInGroup(groupName);
+			sessionCache.getGroup().setUsers(users);
+			}
 		return RESULT_SUCCESS;
 		}
 
