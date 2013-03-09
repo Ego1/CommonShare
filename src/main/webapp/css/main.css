@@ -95,9 +95,9 @@
 	float: center;
 }
 
-.moduleBodyDiv
+.moduleBodyDiv p
 {
-
+	text-align: left;
 }
 
 table

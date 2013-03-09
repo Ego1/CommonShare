@@ -13,6 +13,8 @@ function PurchaseUtils()
 	{
 		// Setup variables that shall be used here.
 		var spreadUtils = new SpreadUtils();
+		// Setup the user map
+		var userMap = spreadUtils.setupUserMap(users);
 		// Iterate over the purchases and push them into the table.
 		/*
 		 * <tr> <th>Purchase Date</th> <th>Item</th> <th>Paid By</th> <th>Exclusions</th>
@@ -46,7 +48,10 @@ function PurchaseUtils()
 				{
 				for(var exclusionCtr = 0; exclusionCtr < excludedPersonIds.length; exclusionCtr++)
 					{
-					excludedPersonsString = excludedPersonsString + "<br/>" + userMap.get(parseInt(excludedPersonIds[exclusionCtr])).name;
+					if(excludedPersonIds[exclusionCtr] != "")
+						{
+						excludedPersonsString = excludedPersonsString + "<br/>" + userMap.get(parseInt(excludedPersonIds[exclusionCtr])).name;
+						}
 					}
 				excludedPersonsString = excludedPersonsString.substring(5);
 				}

@@ -1,7 +1,8 @@
 .purchaseFormDiv
 {
-	width: 510px;
+	width: 750px;
 	float: left;
+	margin: 0 0 5px 0;
 }
 
 .addedPurchasesDiv

@@ -12,7 +12,7 @@
 		<div class="moduleBodyDiv">
 			<message:messageDisplay></message:messageDisplay>
 			<p>
-			Here we show only those purchases that have not been calculated yet.
+			Here we show only those purchases that have not been calculated yet. <br/>
 			To view purchases that have already been calculated, please visit different section.
 			</p>
 			<table id="purchasesTable" class="table">
@@ -48,16 +48,6 @@
 				</s:iterator>
 				 
 			];
-		
-		/*var items = 
-			[
-				<s:iterator value="items">
-					{
-					"id": <s:property value="id"/>,
-					"name": "<s:property value="name"/>"
-					},
-				</s:iterator>
-			];*/
 		
 		var purchases = 
 			[

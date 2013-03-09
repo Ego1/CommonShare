@@ -35,10 +35,21 @@
 	background: none repeat scroll 0 0 #151515;
     border: 1px solid #262626;
 	float: left;
-	width: 70%;
+	width: 65%;
+	min-height: 35px;
 	padding: 0 0 0 5px;
 	color: #F3EFD6;
     font-size: 18px;
+}
+
+.singleRowSet
+{
+	width: 100%;
+}
+
+.singleRowSet div
+{
+	width: 100%;
 }
 
 .formdiv .formitem div .head

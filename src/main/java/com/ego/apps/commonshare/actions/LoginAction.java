@@ -49,7 +49,7 @@ public class LoginAction extends BaseAction implements LoginMsgs
 				authorizedURLs.addUrl("Item Management", new MenuUrl("See all Items", request.getContextPath() + "p/showItems.action"));
 				authorizedURLs.addUrl("Item Management", new MenuUrl("Add an Item", request.getContextPath() + "p/showAddItem.action"));
 				
-				authorizedURLs.addUrl("Share Management", new MenuUrl("Show Purchases", request.getContextPath() + "p/showPurchase.action"));
+				authorizedURLs.addUrl("Share Management", new MenuUrl("Show Purchases", request.getContextPath() + "p/showPurchases.action"));
 				authorizedURLs.addUrl("Share Management", new MenuUrl("Add Purchases", request.getContextPath() + "p/showAddPurchase.action"));
 				authorizedURLs.addUrl("Share Management", new MenuUrl("Show Calculations", request.getContextPath() + "p/showCalculations.action"));
 				break;

@@ -36,4 +36,14 @@ function SpreadUtils()	{
 			}
 		return exclusionArr;
 	};
+	
+	this.setupUserMap = function(users)
+	{
+	var userMap = new HashMap();
+	for(var userCtr = 0; userCtr < users.length; userCtr++)
+		{
+		userMap.put(users[userCtr].id, users[userCtr]);
+		}
+	return userMap;
+	}
 }
