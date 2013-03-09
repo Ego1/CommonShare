@@ -7,7 +7,7 @@
 	height: auto;
 	text-align: left;
 	/*background-color: #000000;*/
-	/*display: block;*/
+	display: inline-block;
 	padding: 10px;
 }
 
@@ -37,14 +37,14 @@
 	float: left;
 	width: 65%;
 	min-height: 35px;
-	padding: 0 0 0 5px;
 	color: #F3EFD6;
     font-size: 18px;
 }
 
-.singleRowSet
+.formdiv .formitem div div
 {
 	width: 100%;
+	display: inline-block;
 }
 
 .singleRowSet div

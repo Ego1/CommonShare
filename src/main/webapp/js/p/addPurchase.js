@@ -52,7 +52,7 @@ function initAddPurchase() {
 			"<div><span class=\"head\">Check users who are excluded</span><br/>"
 					+ exclusionCheckboxHTML + "</div>");
 	$("div#paymentDiv").append(
-			"<div><span class=\"head\">Type amount paid by every user</span>"
+			"<div><span class=\"head\">Type amount paid by every user</span><br/>"
 					+ paymentTextboxHTML + "</div>");
 	
 	// Attach blur event to the spread text boxes.

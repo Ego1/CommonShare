@@ -10,44 +10,42 @@
 		<div class="moduleHeaderDiv" id="moduleHeader">Calculation Details</div>
 		<div class="moduleBodyDiv">
 			<message:messageDisplay></message:messageDisplay>
-			<div>
+			<div class="purchaseFormDiv">
 				<p>Calculation information</p>
-				<div class="purchaseFormDiv">
-					<div class="formdiv">
-						<div class="formitem">
-							<label for="tbitem">Calculated On</label>
-							<div id="calculationdate"></div>
-						</div>
-						<div class="formitem">
-							<label for="tbpurchasedate">Description</label>
-							<div id="calculationdescription"></div>
-						</div>
-						<div class="formitem">
-							<label for="totalAmount">Amount Paid</label>
-							<div id="amountpaid"></div>
-						</div>
-						<div class="formitem">
-							<label for="tbcomment">Amount Shared</label>
-							<div id="amountshared"></div>
-						</div>
+				<div class="formdiv">
+					<div class="formitem">
+						<label for="tbitem">Calculated On</label>
+						<div id="calculationdate"></div>
 					</div>
-				</div>	
-				<p>These are the purchases which were calculated as a part of this calculation</p>
-				<table id="purchasesTable" class="table">
-					<thead>
-						<tr>
-							<th>Purchase Date</th>
-							<th>Item</th>
-							<th>Paid By</th>
-							<th>Exclusions</th>
-							<th>Comments</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody id="purchaseTableBody">
-					</tbody> 
-				</table>
-			</div>
+					<div class="formitem">
+						<label for="tbpurchasedate">Description</label>
+						<div id="calculationdescription"></div>
+					</div>
+					<div class="formitem">
+						<label for="totalAmount">Amount Paid</label>
+						<div id="amountpaid"></div>
+					</div>
+					<div class="formitem">
+						<label for="tbcomment">Amount Shared</label>
+						<div id="amountshared"></div>
+					</div>
+				</div>
+			</div>	
+			<p>These are the purchases which were calculated as a part of this calculation</p>
+			<table id="purchasesTable" class="table">
+				<thead>
+					<tr>
+						<th>Purchase Date</th>
+						<th>Item</th>
+						<th>Paid By</th>
+						<th>Exclusions</th>
+						<th>Comments</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody id="purchaseTableBody">
+				</tbody> 
+			</table>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -87,6 +85,7 @@
 			 	</s:iterator>
 			];
 	</script>
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}css/p/showACalculation.css"></link>
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/lib/string-hashmap.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/lib/spread-utils.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}js/lib/purchase-utils.js"></script>
