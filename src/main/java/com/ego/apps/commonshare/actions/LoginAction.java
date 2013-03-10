@@ -9,10 +9,10 @@ import com.ego.apps.commonshare.cache.SessionCache;
 import com.ego.apps.commonshare.cache.SessionCacheManager;
 import com.ego.apps.commonshare.dao.UserDAO;
 import com.ego.apps.commonshare.dao.entities.User;
-import com.ego.apps.commonshare.messaging.LoginMsgs;
+import com.ego.apps.commonshare.messaging.Messages;
 import com.ego.apps.commonshare.util.StringUtils;
 
-public class LoginAction extends BaseAction implements LoginMsgs
+public class LoginAction extends BaseAction
 	{
 	/**
 	 * 
@@ -25,7 +25,7 @@ public class LoginAction extends BaseAction implements LoginMsgs
 		{
 		if (login == null || StringUtils.isEmpty(login.getLoginName()) || StringUtils.isEmpty(login.getPassword()))
 			{
-			addError(LOGIN_ERROR_MISSING_DATA);
+			addError(Messages.getMsg(Messages.LOGIN_ERROR_MISSING_DATA));
 			return RESULT_ERROR;
 			}
 		logger.debug("Trying to login");
@@ -33,7 +33,7 @@ public class LoginAction extends BaseAction implements LoginMsgs
 		User userProfile = userDao.authenticate(login.getLoginName(), login.getPassword());
 		if (userProfile == null)
 			{
-			addError(LOGIN_ERROR_BAD_CREDENTIALS);
+			addError(Messages.getMsg(Messages.LOGIN_ERROR_BAD_CREDENTIALS));
 			return RESULT_ERROR;
 			}
 

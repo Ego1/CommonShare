@@ -12,8 +12,7 @@ import com.ego.apps.commonshare.dao.entities.User;
 import com.ego.apps.commonshare.enumerations.Role;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
 import com.ego.apps.commonshare.exceptions.CSSystemException;
-import com.ego.apps.commonshare.messaging.GroupMsgs;
-import com.ego.apps.commonshare.messaging.UserRegistrationMsgs;
+import com.ego.apps.commonshare.messaging.Messages;
 import com.ego.apps.commonshare.util.SecurityUtils;
 import com.ego.apps.commonshare.util.StringUtils;
 
@@ -49,7 +48,7 @@ public class UserDAO extends BaseDAO
 		User user = UserHelper.createUserFromRegistrationProfile(register);
 		if (user == null)
 			{
-			throw new CSBusinessException(GroupMsgs.REGISTRATION_MISSING_INFORATION);
+			throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_MISSING_INFORATION));
 			}
 		user.setRole(Role.MEMBER);
 		user = createUser(user, groupName);
@@ -74,11 +73,12 @@ public class UserDAO extends BaseDAO
 	 * @throws CSBusinessException
 	 *             Thrown when group is missing.
 	 */
+	@SuppressWarnings("unchecked")
 	public User createUser(User user, String groupName) throws CSSystemException, CSBusinessException
 		{
 		if (user == null)
 			{
-			throw new CSBusinessException(UserRegistrationMsgs.ERROR_INVALID_PROFILE);
+			throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_MISSINS_PROFILE));
 			}
 		try
 			{
@@ -102,7 +102,8 @@ public class UserDAO extends BaseDAO
 		List<User> alreadyCreatedUser = (List<User>) query.getResultList();
 		if (alreadyCreatedUser.size() != 0)
 			{
-			throw new CSBusinessException(UserRegistrationMsgs.ERROR_LOGIN_ALREADY_EXISTS);
+			entityManager.getTransaction().rollback();
+			throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_LOGIN_ALREADY_EXISTS));
 			}
 		
 		// Obtain the group entity and assign it to the User entity.
@@ -112,7 +113,7 @@ public class UserDAO extends BaseDAO
 		if(userGroups.size() == 0)
 			{
 			// The group does not exist.
-			throw new CSBusinessException(GroupMsgs.GROUP_ALREADY_EXISTS);
+			throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_GROUP_ALREADY_EXISTS));
 			}
 		user.setGroup(userGroups.get(0));
 		entityManager.persist(user);
@@ -135,6 +136,7 @@ public class UserDAO extends BaseDAO
 	 *            The password of the user
 	 * @return User object on success. null on failure.
 	 */
+	@SuppressWarnings("unchecked")
 	public User authenticate(String login, String password)
 		{
 		// Check if login id or password are empty

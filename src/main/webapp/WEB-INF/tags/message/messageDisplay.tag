@@ -10,6 +10,7 @@
 			<div class="errorMessage">
 				<ul id="errormessageul">
 					<s:iterator value="error.messages" var="msg">
+						<li><s:property value="#msg"/></li>
 						<li><s:property/></li>
 					</s:iterator>
 				</ul>

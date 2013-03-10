@@ -3,6 +3,9 @@ package com.ego.apps.commonshare.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.util.LocalizedTextUtil;
+
 public class StringUtils
 	{
 	private StringUtils()
@@ -139,4 +142,4 @@ public class StringUtils
 			}
 		return strBuff.subSequence(0, strBuff.length() - separator2.length()).toString();
 		}
-	}
+}

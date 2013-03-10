@@ -8,7 +8,7 @@ import com.ego.apps.commonshare.dao.UserDAO;
 import com.ego.apps.commonshare.dao.entities.User;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
 import com.ego.apps.commonshare.exceptions.CSSystemException;
-import com.ego.apps.commonshare.messaging.GroupMsgs;
+import com.ego.apps.commonshare.messaging.Messages;
 import com.ego.apps.commonshare.messaging.UserRegistrationMsgs;
 import com.ego.apps.commonshare.util.StringUtils;
 
@@ -46,11 +46,9 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 			user = groupDAO.registerGroup(register);
 			if (user == null)
 				{
-				addError(GroupMsgs.REGISTRATION_FAILED);
-				logger.error(GroupMsgs.REGISTRATION_FAILED);
+				addError(Messages.getMsg(Messages.REGISTRATION_ERROR_FAILED));
 				}
-			addMessage(getText(SUCCESS_PROFILE_CREATED, new String[]
-				{ user.getEmailId() }));
+			addMessage(getText(Messages.getMsg(Messages.REGISTRATION_SUCCESS_PROFILE_CREATED), user.getEmailId()));
 			}
 		catch (CSBusinessException e)
 			{
@@ -72,7 +70,7 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 		{
 		if (register == null)
 			{
-			addError(getText(ERROR_INVALID_PROFILE));
+			addError(Messages.getMsg(Messages.REGISTRATION_ERROR_MISSINS_PROFILE));
 			return RESULT_ERROR;
 			}
 
@@ -112,26 +110,26 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 		{
 		if (register == null)
 			{
-			addError(getText(ERROR_INVALID_PROFILE));
+			addError(Messages.getMsg(Messages.REGISTRATION_ERROR_MISSINS_PROFILE));
 			return false;
 			}
 
 		StringBuffer missingFields = new StringBuffer();
 		if (StringUtils.isEmpty(register.getName()))
 			{
-			missingFields.append(getText(LABEL_NAME));
+			missingFields.append(Messages.getMsg(Messages.LABEL_NAME));
 			missingFields.append(", ");
 			}
 
 		if (StringUtils.isEmpty(register.getLoginName()))
 			{
-			missingFields.append(getText(LABEL_LOGIN_NAME));
+			missingFields.append(Messages.getMsg(Messages.LABEL_LOGIN_NAME));
 			missingFields.append(", ");
 			}
 
 		if (StringUtils.isEmpty(register.getPassword()))
 			{
-			missingFields.append(getText(LABEL_PASSWORD));
+			missingFields.append(Messages.getMsg(Messages.LABEL_PASSWORD));
 			missingFields.append(", ");
 			}
 
@@ -140,7 +138,7 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 			case REGISTER_GROUP:
 				if (StringUtils.isEmpty(register.getGroupName()))
 					{
-					missingFields.append(getText(LABEL_GROUP_NAME));
+					missingFields.append(Messages.getMsg(Messages.LABEL_GROUP_NAME));
 					missingFields.append(", ");
 					}
 				break;
@@ -148,7 +146,7 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 		if (missingFields.length() > 0)
 			{
 			String errorString = missingFields.substring(0, missingFields.length() - 2);
-			addError(getText(ERROR_MISSING_REQUIRED_FIELDS, errorString));
+			addError(Messages.getMsg(Messages.REGISTRATION_ERROR_MISSING_REQUIRED_FIELDS, errorString));
 			}
 		return true;
 		}

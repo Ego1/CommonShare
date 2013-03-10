@@ -12,6 +12,7 @@ import com.ego.apps.commonshare.actions.vo.CSError;
 import com.ego.apps.commonshare.actions.vo.CSMessage;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
 import com.ego.apps.commonshare.exceptions.CSSystemException;
+import com.ego.apps.commonshare.messaging.Messages;
 import com.ego.apps.commonshare.util.MathUtils;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -58,7 +59,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 		if (message == null) {
 			message = new CSMessage();
 		}
-		message.addMessage(msg);
+		message.addMessage(msg);		
 	}
 
 	public void setServletResponse(HttpServletResponse response) {
@@ -81,7 +82,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 	protected String handleSystemException(CSSystemException csSystemException) {
 		logger.fatal("A business exception occured.", csSystemException);
 		csSystemException.printStackTrace();
-		addError(csSystemException.getCode(), "system.exception.occured");
+		addError(csSystemException.getCode(), Messages.getMsg(Messages.SYSTEM_EX));
 		return RESULT_ERROR;
 	}
 

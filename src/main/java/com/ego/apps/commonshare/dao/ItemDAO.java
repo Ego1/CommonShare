@@ -8,6 +8,7 @@ import com.ego.apps.commonshare.actions.vo.ItemVO;
 import com.ego.apps.commonshare.dao.entities.Group;
 import com.ego.apps.commonshare.dao.entities.Item;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
+import com.ego.apps.commonshare.messaging.Messages;
 
 public class ItemDAO extends BaseDAO
 	{
@@ -18,6 +19,7 @@ public class ItemDAO extends BaseDAO
 	 *            The group name whose items are to be fetched.
 	 * @return A list of items associated to mentioned group.
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Item> getAllItems(String group)
 		{
 		Query query = entityManager.createNamedQuery("GET_ALL_GROUP_ITEMS");
@@ -26,12 +28,12 @@ public class ItemDAO extends BaseDAO
 		return items;
 		}
 
+	@SuppressWarnings("unchecked")
 	public List<ItemVO> getAllItemsWithTaxonomy(String group)
 		{
 		Query query = entityManager.createNativeQuery(CommonShareNativeQueries.GET_ITEMS);
 		query.setParameter("groupName", group);
-		List items = query.getResultList();
-
+		List<ItemVO> items = query.getResultList();
 		return items;
 		}
 
@@ -44,7 +46,7 @@ public class ItemDAO extends BaseDAO
 			{
 			// This scenario must not occur.
 			entityManager.getTransaction().rollback();
-			throw new CSBusinessException("itemmanagement.error.invalidgroup");
+			throw new CSBusinessException(Messages.getMsg(Messages.ERROR_INVALID_GROUP));
 			}
 
 		Item item = new Item();

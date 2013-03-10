@@ -13,6 +13,7 @@ import com.ego.apps.commonshare.dao.ItemDAO;
 import com.ego.apps.commonshare.dao.entities.Item;
 import com.ego.apps.commonshare.dao.entities.comparators.ItemComparator;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
+import com.ego.apps.commonshare.messaging.Messages;
 
 public class ItemManagementAction extends BaseAction
 	{
@@ -56,7 +57,7 @@ public class ItemManagementAction extends BaseAction
 			GroupCache groupCache = GroupCacheManager.getGroupCache(groupName);
 			groupCache.getItems().add(item);
 			ajaxResult.setResult(true);
-			ajaxResult.setMessage("itemmanagement.success.itemadded");
+			ajaxResult.setMessage(Messages.getMsg(Messages.ITEM_MANAGEMENT_ADD_SUCCESS));
 			ajaxResult.setData("{\"id\" : \"" + item.getId() + "\", \"name\": \"" + item.getName() + "\", \"description\":\"" + item.getDescription() + "\"}");
 			}
 		catch (CSBusinessException e)

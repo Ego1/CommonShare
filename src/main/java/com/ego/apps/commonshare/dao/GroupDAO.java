@@ -12,8 +12,7 @@ import com.ego.apps.commonshare.dao.entities.User;
 import com.ego.apps.commonshare.enumerations.Role;
 import com.ego.apps.commonshare.exceptions.CSBusinessException;
 import com.ego.apps.commonshare.exceptions.CSSystemException;
-import com.ego.apps.commonshare.messaging.GroupMsgs;
-import com.ego.apps.commonshare.messaging.UserRegistrationMsgs;
+import com.ego.apps.commonshare.messaging.Messages;
 import com.ego.apps.commonshare.util.SecurityUtils;
 import com.ego.apps.commonshare.util.StringUtils;
 
@@ -39,16 +38,17 @@ public final class GroupDAO extends BaseDAO
 	 * @throws CSBusinessException
 	 * @throws CSSystemException
 	 */
+	@SuppressWarnings("unchecked")
 	public User registerGroup(UserRegistrationVO userRegistrationVO) throws CSBusinessException, CSSystemException
 		{
 		if (userRegistrationVO == null)
 			{
-			throw new CSBusinessException(GroupMsgs.REGISTRATION_MISSING_INFORATION);
+			throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_MISSING_INFORATION));
 			}
 
 		if (StringUtils.isEmpty(userRegistrationVO.getGroupName()))
 			{
-			throw new CSBusinessException(GroupMsgs.REGISTRATION_MISSING_GROUP_NAME);
+			throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_MISSING_GROUP_NAME));
 			}
 
 		// Create a group object
@@ -60,7 +60,7 @@ public final class GroupDAO extends BaseDAO
 		User user = UserHelper.createUserFromRegistrationProfile(userRegistrationVO);
 		if (user == null)
 			{
-			throw new CSBusinessException(GroupMsgs.REGISTRATION_MISSING_INFORATION);
+			throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_MISSING_INFORATION));
 			}
 		user.setRole(Role.MODERATOR);
 
@@ -82,7 +82,7 @@ public final class GroupDAO extends BaseDAO
 			List<Group> alreadyCreatedGroup = (List<Group>) query.getResultList();
 			if (alreadyCreatedGroup.size() != 0)
 				{
-				throw new CSBusinessException(GroupMsgs.GROUP_ALREADY_EXISTS);
+				throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_GROUP_ALREADY_EXISTS));
 				}
 
 			Query userQuery = entityManager.createNamedQuery("GET_USER_BY_LOGIN");
@@ -90,7 +90,7 @@ public final class GroupDAO extends BaseDAO
 			List<User> alreadyCreatedUser = (List<User>) userQuery.getResultList();
 			if (alreadyCreatedUser.size() != 0)
 				{
-				throw new CSBusinessException(UserRegistrationMsgs.ERROR_LOGIN_ALREADY_EXISTS);
+				throw new CSBusinessException(Messages.getMsg(Messages.REGISTRATION_ERROR_LOGIN_ALREADY_EXISTS));
 				}
 
 			group.getUsers().add(user);
@@ -112,6 +112,7 @@ public final class GroupDAO extends BaseDAO
 		return user;
 		}
 
+	@SuppressWarnings("unchecked")
 	public List<User> getAllUsersInGroup(String groupName)
 		{
 		Query query = entityManager.createNamedQuery("GET_ALL_USERS_IN_GROUP");
@@ -119,6 +120,7 @@ public final class GroupDAO extends BaseDAO
 		return (List<User>) query.getResultList();
 		}
 
+	@SuppressWarnings("unchecked")
 	public Group getGroup(String groupName)
 		{
 		Query query = entityManager.createNamedQuery("GET_GROUP");
