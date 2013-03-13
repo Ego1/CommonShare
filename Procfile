@@ -1,1 +1,1 @@
-web:    java -cp target/classes:target/dependency/* com.ego.apps.commonshare.Launch
+web: target/bin/webapp
