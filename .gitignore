@@ -1,1 +1,4 @@
-target
+tomcat.8080
+.classpath
+.project
+.gitignore
