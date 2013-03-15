@@ -61,6 +61,7 @@
 		<artifactId>hibernate-jpa-2.0-api</artifactId>
 		<version>1.0.0.Final</version>
 	</dependency>
+	<!--
 	<dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
@@ -71,6 +72,7 @@
 	  <artifactId>slf4j-api</artifactId>
 	  <version>1.7.2</version>
 	</dependency>
+	-->
   </dependencies>
   <build>
     <finalName>embeddedTomcatSample</finalName>
