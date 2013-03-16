@@ -16,7 +16,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="item")
+@Table(name="items")
 @NamedQueries(
 		@NamedQuery(name="GET_ALL_GROUP_ITEMS", query="Select i from Item i join i.userGroup g where g.name=:groupName ")
 		)

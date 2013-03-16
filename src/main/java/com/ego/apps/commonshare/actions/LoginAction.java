@@ -1,5 +1,7 @@
 package com.ego.apps.commonshare.actions;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 
 import com.ego.apps.commonshare.actions.vo.UserLoginVO;
@@ -48,7 +50,7 @@ public class LoginAction extends BaseAction
 			case MEMBER:
 				authorizedURLs.addUrl("Item Management", new MenuUrl("See all Items", request.getContextPath() + "p/showItems.action"));
 				authorizedURLs.addUrl("Item Management", new MenuUrl("Add an Item", request.getContextPath() + "p/showAddItem.action"));
-				
+
 				authorizedURLs.addUrl("Share Management", new MenuUrl("Show Purchases", request.getContextPath() + "p/showPurchases.action"));
 				authorizedURLs.addUrl("Share Management", new MenuUrl("Add Purchases", request.getContextPath() + "p/showAddPurchase.action"));
 				authorizedURLs.addUrl("Share Management", new MenuUrl("Show Calculations", request.getContextPath() + "p/showCalculations.action"));
@@ -60,6 +62,13 @@ public class LoginAction extends BaseAction
 		sessionCache.setUser(userProfile);
 		sessionCache.setLoggedInUser(true);
 		sessionCache.setAuthorizedUrl(authorizedURLs);
+		return RESULT_SUCCESS;
+		}
+
+	public String doLogout()
+		{
+		HttpSession session = request.getSession();
+		session.invalidate();
 		return RESULT_SUCCESS;
 		}
 

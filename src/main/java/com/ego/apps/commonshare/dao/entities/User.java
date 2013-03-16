@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import com.ego.apps.commonshare.enumerations.Role;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "users")
 @NamedQueries(
 	{ @NamedQuery(name = "GET_USER_BY_LOGIN", query = "SELECT u FROM User u WHERE u.login=:loginname") })
 public class User

@@ -91,6 +91,7 @@ function AutoComplete()
 	
 	function searchedSentenceSelected()
 	{
+		$('input#autocompleteSearchBox').val("");
 		$('input#autocompleteSearchBox').val($('select#autocompleteSearchList option:selected').text());
 		$('button#autocompleteOkBtn').removeAttr("disabled"); 
 	}
@@ -123,6 +124,9 @@ function AutoComplete()
 						text: $('select#autocompleteSearchList option:selected').text(), 
 						id: $('select#autocompleteSearchList option:selected').val()
 						});
+		
+		// We are done. So we reset the selection.
+		$('select#autocompleteSearchList option:selected').removeAttr("selected");
 	}
 	
 	function cancelAutocomplete()

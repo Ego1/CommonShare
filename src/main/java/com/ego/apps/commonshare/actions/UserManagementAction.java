@@ -42,6 +42,4 @@ public class UserManagementAction extends BaseAction
 		{
 		this.users = users;
 		}
-	
-	
 	}

@@ -6,10 +6,17 @@
 	<persistence-unit name="CommonSharePersistenceUnit">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+        	<!-- 
+        	<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/commonshare" />
             <property name="hibernate.connection.username" value="root" />
             <property name="hibernate.connection.password" value="" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+        	 -->
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres" />
+            <property name="hibernate.connection.username" value="postgres" />
+            <property name="hibernate.connection.password" value="password" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
         </properties>
 	</persistence-unit>

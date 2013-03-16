@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "calculation")
+@Table(name = "calculations")
 @NamedQueries(
 	//	{ @NamedQuery(name = "GET_LAST_CALCULATION_ID", query = "SELECT MAX(p.id) FROM Calculations c JOIN c.userGroup g JOIN c.lastPurchase p WHERE g.name = :groupName") })
 	{ @NamedQuery(name = "GET_LAST_CALCULATION_ID", query = "SELECT MAX(c.lastPurchase.id) FROM Calculation c JOIN c.userGroup g WHERE g.name = :groupName"),

@@ -93,6 +93,7 @@ function openTaxonomyAutocomplete()
  */
 function setItem(selectedItem)
 {
+	$('input#tbitem').val("");
 	$('input#tbitem').val(selectedItem.text);
 	$('input#tbitemid').val(selectedItem.id);
 }
@@ -105,6 +106,9 @@ function setItem(selectedItem)
  */
 function validateAndSubmit(event)
 {
+	// Since we are making an AJAX call, we shall prevent default propagation. And then fire AJAX.
+	event.preventDefault();
+	
 	// All errors will be published into this array.
 	var errors = new Array();
 	
@@ -176,8 +180,6 @@ function validateAndSubmit(event)
 	}
 	$("input#paymentSpread").val(paymentSpread);
 	
-	// Since we are making an AJAX call, we shall prevent default propagation. And then fire AJAX.
-	event.preventDefault();
 	if(errors.length == 0)
 		{
 		$.post(addPurchaseURL, $('form#addPurchaseForm').serialize(),addPurchaseSuccess).error(addPurchaseFailure);
@@ -230,6 +232,7 @@ function addPurchaseSuccess(data)
 		$("table#purchasesTable").append(newRow);
 		$("div#purchasesAddedSummary").show();
 		$("form#addPurchaseForm")[0].reset();
+		$("div#totalAmount").html("");
 		}
 	else
 		{

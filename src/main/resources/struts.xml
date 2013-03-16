@@ -68,6 +68,10 @@
 			<result>/WEB-INF/pages/p/home.jsp</result>
 		</action>
 		
+		<action name="logout" class="com.ego.apps.commonshare.actions.LoginAction" method="doLogout">
+			<result name="SUCCESS">/WEB-INF/pages/p/home.jsp</result>
+		</action>
+		
 		<action name="showAllUsers" class="com.ego.apps.commonshare.actions.UserManagementAction" method="getAllUsers">
 			<result name="SUCCESS">/WEB-INF/pages/p/showAllUsers.jsp</result>
 			<result name="ERROR">/WEB-INF/pages/p/showAllUsers.jsp</result>

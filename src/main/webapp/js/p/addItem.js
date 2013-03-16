@@ -12,6 +12,7 @@ function createItem(event)
 {
 	event.preventDefault();
 	messages.clearErrorMessage();
+	messages.clearMessages();
 	validate();
 	if(messages.getErrorMessagesLength() <= 0)
 		{
@@ -34,13 +35,14 @@ function validate()
 
 function addItemFailure()
 {
-	
+	messages.clearErrorMessage();
+	messages.clearMessages();
 }
 
 function addItemSuccess(data)
 {
 	messages.clearErrorMessage();
 	messages.clearMessages();
-	messages.addSuccessMessage("The item " + data.name + "was added successfully.");
+	messages.addSuccessMessage("The item " + data.data.name + " was added successfully.");
 	$('form#addItemForm')[0].reset();
 }	

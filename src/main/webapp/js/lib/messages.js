@@ -16,11 +16,9 @@ function Messages()
 	
 	this.addErrorMessages = function(messages)
 	{
-		mserrormsgsgs.push(messages);
 		for(var ctr = 0; ctr < messages.length; ctr++)
 			{
 			this.addErrorMessage(messages[ctr]);
-			// addErrorMessage(messages[ctr]);
 			}
 	};
 	

@@ -1,25 +1,11 @@
 .loginDiv
 {
-	/*float :left;*/
 	opaque: 0.5;
-	/*border-radius: 10px;*/
-	/*border: 1px solid white;*/
 	margin: 5px;
-	/*padding: 5px;*/
 	width: 450px;
-	
 }
-
-/*
-.instructions
+.registerformdiv
 {
-	font-weight: bold;
-	font-size: 15px;
-	opaque:  0.9;
-	clear: both;
-	text-align: left;
-	background-color: white;
-	border-radius: 10px;
-	padding: 5px 10px;
+	margin: 5px;
+	width: 450px;
 }
-*/

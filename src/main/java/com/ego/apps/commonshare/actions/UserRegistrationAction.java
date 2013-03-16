@@ -48,6 +48,7 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 				{
 				addError(Messages.getMsg(Messages.REGISTRATION_ERROR_FAILED));
 				}
+			// User was created. Add him in the cache too.
 			addMessage(getText(Messages.getMsg(Messages.REGISTRATION_SUCCESS_PROFILE_CREATED), user.getEmailId()));
 			}
 		catch (CSBusinessException e)
@@ -86,7 +87,8 @@ public class UserRegistrationAction extends BaseAction implements UserRegistrati
 		UserDAO userDao = new UserDAO();
 		try
 			{
-			userDao.createUser(register, groupName);
+			User user = userDao.createUser(register, groupName);
+			sessionCache.getGroup().getUsers().add(user);
 			}
 		catch (CSBusinessException e)
 			{

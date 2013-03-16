@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_group")
+@Table(name = "user_groups")
 @NamedQueries(
 	{ @NamedQuery(name = "GET_GROUP", query = "SELECT g FROM Group g WHERE g.name = :name"),
 			@NamedQuery(name = "GET_ALL_USERS_IN_GROUP", query = "SELECT g.users FROM Group g WHERE g.name = :groupName") })
