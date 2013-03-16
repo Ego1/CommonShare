@@ -22,14 +22,14 @@
 					<label for="password">Password</label>
 					<input type="password" id="password" name="login.password"/>
 				</div>
-				<button id="submit" class="submitbutton">Add Purchase</button>				
+				<button id="submit" class="submitbutton">Login</button>				
 				<span>
 					<a href="/showGroupRegistrationPage.action">Register yourself</a>
 				</span>					
 			</div>
 		</form>
 	</div>
-	<div class="rightSideInfoDiv">
+	<div class="infoDiv">
 			<h3>We heartily welcome you to Common Share management software.</h3>
 			<h4>Why is it so dark in here?</h4>
 			<p>
@@ -83,13 +83,6 @@
 			<p>
 				You can contact us at harsh.vardhan.singh@outlook.com.<br/>
 				This is a temporary arrangement till we come across a better approach.
-			</p>
-			<h4>Is it open source?</h4>
-			<p>
-				Yes. This is an open source software and our source code is available at github.
-				You can either google it or email us directly, and we will send you the link.
-				<br/>
-				Note: We haven't come up with any kind of licensing yet. Its open to all.
 			</p>
 		</div>
 </cspage:fullpage>
