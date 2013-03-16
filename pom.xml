@@ -62,11 +62,13 @@
 		<version>1.0.0.Final</version>
 	</dependency>
 	<!-- Adding postgres sql dependency -->
+	<!-- 
 	<dependency>
         <groupId>postgresql</groupId>
         <artifactId>postgresql</artifactId>
         <version>9.1-901.jdbc4</version>
     </dependency>
+     -->
 	<!--
 	<dependency>
 		<groupId>mysql</groupId>
