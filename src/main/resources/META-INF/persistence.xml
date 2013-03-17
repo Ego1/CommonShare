@@ -38,9 +38,9 @@
             -->
             <!-- Running configuration - Heroku -->
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:postgresql://ec2-23-21-91-29.compute-1.amazonaws.com:5432/d88uvu0b1egh05" />
-            <property name="hibernate.connection.username" value="thwitmiaihutok" />
-            <property name="hibernate.connection.password" value="Bi4GujAOeZThjEiuOrMyATiuo1" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres" />
+            <property name="hibernate.connection.username" value="postgres" />
+            <property name="hibernate.connection.password" value="password" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
         </properties>
 	</persistence-unit>
